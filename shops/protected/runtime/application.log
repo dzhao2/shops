@@ -1266,3 +1266,913 @@ Stack trace:
 REQUEST_URI=/shops/index.php?r=wdGoodsPicture/delete&id=
 HTTP_REFERER=http://192.168.1.105/shops/index.php?r=wdGoods/create
 ---
+2014/04/10 09:31:08 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\wamp\www\yii\framework\web\CController.php:336
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('item')
+#4 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Front/item')
+#5 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 D:\wamp\www\shops\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/shops/index.php?r=Front/item
+---
+2014/04/10 09:38:10 [error] [php] Undefined variable: id (D:\wamp\www\shops\protected\controllers\FrontController.php:7)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(286): FrontController->runAction()
+#1 D:\wamp\www\yii\framework\web\CController.php(265): FrontController->runActionWithFilters()
+#2 D:\wamp\www\yii\framework\web\CWebApplication.php(282): FrontController->run()
+#3 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=Front
+in D:\wamp\www\shops\protected\controllers\FrontController.php (7)
+in D:\wamp\www\shops\index.php (13)
+2014/04/10 09:52:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'recommend_1.sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (`recommend_1`.`sh_recm_1`=:ypl0).
+in D:\wamp\www\shops\protected\views\front\index.php (18)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (13)
+in D:\wamp\www\shops\index.php (13)
+2014/04/10 09:52:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'recommend_1.sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (`recommend_1`.`sh_recm_1`=:ypl0)' in D:\wamp\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(803): CDbCommand->queryAll()
+#2 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(507): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(163): CJoinElement->lazyFind(Object(WdShop))
+#4 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(281): CActiveFinder->lazyFind(Object(WdShop))
+#5 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(181): CActiveRecord->getRelated('recommend_1')
+#6 D:\wamp\www\shops\protected\views\front\index.php(18): CActiveRecord->__isset('recommend_1')
+#7 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#8 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#9 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#10 D:\wamp\www\shops\protected\controllers\FrontController.php(13): CController->renderPartial('index', Array)
+#11 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#12 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Front')
+#17 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 D:\wamp\www\shops\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/shops/index.php?r=Front
+---
+2014/04/10 09:59:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (t.sh_recm_1=recommend_1.g_id).
+in D:\wamp\www\shops\protected\views\front\index.php (18)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (13)
+in D:\wamp\www\shops\index.php (13)
+2014/04/10 09:59:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (t.sh_recm_1=recommend_1.g_id)' in D:\wamp\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(803): CDbCommand->queryAll()
+#2 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(507): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(163): CJoinElement->lazyFind(Object(WdShop))
+#4 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(281): CActiveFinder->lazyFind(Object(WdShop))
+#5 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(181): CActiveRecord->getRelated('recommend_1')
+#6 D:\wamp\www\shops\protected\views\front\index.php(18): CActiveRecord->__isset('recommend_1')
+#7 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#8 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#9 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#10 D:\wamp\www\shops\protected\controllers\FrontController.php(13): CController->renderPartial('index', Array)
+#11 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#12 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Front')
+#17 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 D:\wamp\www\shops\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/shops/index.php?r=Front
+---
+2014/04/10 10:01:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (sh_recm_1=g_id).
+in D:\wamp\www\shops\protected\views\front\index.php (18)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (13)
+in D:\wamp\www\shops\index.php (13)
+2014/04/10 10:01:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (sh_recm_1=g_id)' in D:\wamp\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(803): CDbCommand->queryAll()
+#2 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(507): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(163): CJoinElement->lazyFind(Object(WdShop))
+#4 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(281): CActiveFinder->lazyFind(Object(WdShop))
+#5 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(181): CActiveRecord->getRelated('recommend_1')
+#6 D:\wamp\www\shops\protected\views\front\index.php(18): CActiveRecord->__isset('recommend_1')
+#7 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#8 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#9 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#10 D:\wamp\www\shops\protected\controllers\FrontController.php(13): CController->renderPartial('index', Array)
+#11 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#12 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Front')
+#17 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 D:\wamp\www\shops\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/shops/index.php?r=Front
+---
+2014/04/10 10:04:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (t.sh_recm_1=recommend_1.g_id).
+in D:\wamp\www\shops\protected\views\front\index.php (18)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (13)
+in D:\wamp\www\shops\index.php (13)
+2014/04/10 10:04:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (t.sh_recm_1=recommend_1.g_id)' in D:\wamp\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(803): CDbCommand->queryAll()
+#2 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(507): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(163): CJoinElement->lazyFind(Object(WdShop))
+#4 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(281): CActiveFinder->lazyFind(Object(WdShop))
+#5 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(181): CActiveRecord->getRelated('recommend_1')
+#6 D:\wamp\www\shops\protected\views\front\index.php(18): CActiveRecord->__isset('recommend_1')
+#7 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#8 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#9 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#10 D:\wamp\www\shops\protected\controllers\FrontController.php(13): CController->renderPartial('index', Array)
+#11 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#12 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Front')
+#17 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 D:\wamp\www\shops\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/shops/index.php?r=Front
+---
+2014/04/10 10:04:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (t.sh_recm_1=recommend_1.g_id).
+in D:\wamp\www\shops\protected\views\front\index.php (18)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (13)
+in D:\wamp\www\shops\index.php (13)
+2014/04/10 10:04:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.sh_recm_1' in 'where clause'. The SQL statement executed was: SELECT `recommend_1`.`g_id` AS `t1_c0`, `recommend_1`.`g_title` AS `t1_c1`, `recommend_1`.`g_default_pic` AS `t1_c2`, `recommend_1`.`g_default_type` AS `t1_c3` FROM `wd_goods` `recommend_1`  WHERE (t.sh_recm_1=recommend_1.g_id)' in D:\wamp\www\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(803): CDbCommand->queryAll()
+#2 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(507): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(163): CJoinElement->lazyFind(Object(WdShop))
+#4 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(281): CActiveFinder->lazyFind(Object(WdShop))
+#5 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(181): CActiveRecord->getRelated('recommend_1')
+#6 D:\wamp\www\shops\protected\views\front\index.php(18): CActiveRecord->__isset('recommend_1')
+#7 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#8 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#9 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#10 D:\wamp\www\shops\protected\controllers\FrontController.php(13): CController->renderPartial('index', Array)
+#11 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#12 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Front')
+#17 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 D:\wamp\www\shops\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/shops/index.php?r=Front
+---
+2014/04/10 10:14:50 [error] [exception.CException] exception 'CException' with message 'Property "WdShop.g_id" is not defined.' in D:\wamp\www\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('g_id')
+#1 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(669): CActiveRecord->__get('g_id')
+#2 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(500): CJoinElement->applyLazyCondition(Object(CJoinQuery), Object(WdShop))
+#3 D:\wamp\www\yii\framework\db\ar\CActiveFinder.php(163): CJoinElement->lazyFind(Object(WdShop))
+#4 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(281): CActiveFinder->lazyFind(Object(WdShop))
+#5 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(181): CActiveRecord->getRelated('recommend_1')
+#6 D:\wamp\www\shops\protected\views\front\index.php(18): CActiveRecord->__isset('recommend_1')
+#7 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#8 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#9 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#10 D:\wamp\www\shops\protected\controllers\FrontController.php(13): CController->renderPartial('index', Array)
+#11 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#12 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Front')
+#17 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 D:\wamp\www\shops\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/shops/index.php?r=Front
+---
+2014/04/10 11:45:56 [error] [exception.CException] exception 'CException' with message 'Property "WdGoods.picures" is not defined.' in D:\wamp\www\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('picures')
+#1 D:\wamp\www\shops\protected\views\front\index.php(29): CActiveRecord->__get('picures')
+#2 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#3 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#4 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#5 D:\wamp\www\shops\protected\controllers\FrontController.php(13): CController->renderPartial('index', Array)
+#6 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#7 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#11 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('front')
+#12 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\shops\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/shops/index.php?r=front
+---
+2014/04/10 13:42:45 [error] [exception.CException] exception 'CException' with message 'Property "WdGoods.0" is not defined.' in D:\wamp\www\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('0')
+#1 D:\wamp\www\yii\framework\base\CModel.php(596): CActiveRecord->__get('0')
+#2 D:\wamp\www\shops\protected\views\front\index.php(41): CModel->offsetGet(0)
+#3 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#4 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#5 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#6 D:\wamp\www\shops\protected\controllers\FrontController.php(25): CController->renderPartial('index', Array)
+#7 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#8 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#12 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('front')
+#13 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\wamp\www\shops\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/shops/index.php?r=front
+---
+2014/04/10 13:47:34 [error] [exception.CException] exception 'CException' with message 'WdGoods and its behaviors do not have a method or closure named "item".' in D:\wamp\www\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\wamp\www\yii\framework\db\ar\CActiveRecord.php(227): CComponent->__call('item', Array)
+#1 D:\wamp\www\shops\protected\views\front\index.php(41): CActiveRecord->__call('item', Array)
+#2 D:\wamp\www\shops\protected\views\front\index.php(41): WdGoods->item(0)
+#3 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#4 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#5 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#6 D:\wamp\www\shops\protected\controllers\FrontController.php(25): CController->renderPartial('index', Array)
+#7 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionIndex()
+#8 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#12 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('front')
+#13 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\wamp\www\shops\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/shops/index.php?r=front
+---
+2014/04/11 05:22:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\shops\protected\controllers\WdGoodsPictureController.php:160
+Stack trace:
+#0 D:\wamp\www\shops\protected\controllers\WdGoodsPictureController.php(142): WdGoodsPictureController->loadModel('')
+#1 [internal function]: WdGoodsPictureController->actionDelete('')
+#2 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(WdGoodsPictureController), Array)
+#3 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WdGoodsPictureController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#13 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoodsPicture/...')
+#14 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\wamp\www\shops\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/shops/index.php?r=wdGoodsPicture/delete&id=
+HTTP_REFERER=http://localhost/shops/index.php?r=wdGoods/create
+---
+2014/04/12 12:17:39 [error] [php] Undefined variable: list (D:\wamp\www\shops\protected\controllers\FrontController.php:40)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(286): FrontController->runAction()
+#1 D:\wamp\www\yii\framework\web\CController.php(265): FrontController->runActionWithFilters()
+#2 D:\wamp\www\yii\framework\web\CWebApplication.php(282): FrontController->run()
+#3 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=front/goodsList&page=0
+in D:\wamp\www\shops\protected\controllers\FrontController.php (40)
+in D:\wamp\www\shops\index.php (13)
+2014/04/12 12:17:57 [error] [php] Undefined variable: model (D:\wamp\www\shops\protected\controllers\FrontController.php:42)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(286): FrontController->runAction()
+#1 D:\wamp\www\yii\framework\web\CController.php(265): FrontController->runActionWithFilters()
+#2 D:\wamp\www\yii\framework\web\CWebApplication.php(282): FrontController->run()
+#3 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=front/goodsList&page=0
+in D:\wamp\www\shops\protected\controllers\FrontController.php (42)
+in D:\wamp\www\shops\index.php (13)
+2014/04/12 13:32:19 [error] [php] Undefined offset: 0 (D:\wamp\www\shops\protected\views\front\list_xml.php:5)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): FrontController->renderFile()
+#1 D:\wamp\www\shops\protected\controllers\FrontController.php(45): FrontController->renderPartial()
+#2 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionGoodsList()
+#3 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 D:\wamp\www\yii\framework\web\CController.php(286): FrontController->runAction()
+#5 D:\wamp\www\yii\framework\web\CController.php(265): FrontController->runActionWithFilters()
+#6 D:\wamp\www\yii\framework\web\CWebApplication.php(282): FrontController->run()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=front/goodsList&page=2
+in D:\wamp\www\shops\protected\views\front\list_xml.php (5)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (45)
+in D:\wamp\www\shops\index.php (13)
+2014/04/12 13:32:19 [error] [php] Undefined offset: 0 (D:\wamp\www\shops\protected\views\front\list_xml.php:5)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): FrontController->renderFile()
+#1 D:\wamp\www\shops\protected\controllers\FrontController.php(45): FrontController->renderPartial()
+#2 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionGoodsList()
+#3 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 D:\wamp\www\yii\framework\web\CController.php(286): FrontController->runAction()
+#5 D:\wamp\www\yii\framework\web\CController.php(265): FrontController->runActionWithFilters()
+#6 D:\wamp\www\yii\framework\web\CWebApplication.php(282): FrontController->run()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=front/goodsList&page=2
+in D:\wamp\www\shops\protected\views\front\list_xml.php (5)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (45)
+in D:\wamp\www\shops\index.php (13)
+2014/04/12 13:32:19 [error] [php] Undefined offset: 0 (D:\wamp\www\shops\protected\views\front\list_xml.php:5)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): FrontController->renderFile()
+#1 D:\wamp\www\shops\protected\controllers\FrontController.php(45): FrontController->renderPartial()
+#2 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionGoodsList()
+#3 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 D:\wamp\www\yii\framework\web\CController.php(286): FrontController->runAction()
+#5 D:\wamp\www\yii\framework\web\CController.php(265): FrontController->runActionWithFilters()
+#6 D:\wamp\www\yii\framework\web\CWebApplication.php(282): FrontController->run()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=front/goodsList&page=2
+in D:\wamp\www\shops\protected\views\front\list_xml.php (5)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (45)
+in D:\wamp\www\shops\index.php (13)
+2014/04/12 13:32:19 [error] [php] Undefined offset: 0 (D:\wamp\www\shops\protected\views\front\list_xml.php:5)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): FrontController->renderFile()
+#1 D:\wamp\www\shops\protected\controllers\FrontController.php(45): FrontController->renderPartial()
+#2 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionGoodsList()
+#3 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 D:\wamp\www\yii\framework\web\CController.php(286): FrontController->runAction()
+#5 D:\wamp\www\yii\framework\web\CController.php(265): FrontController->runActionWithFilters()
+#6 D:\wamp\www\yii\framework\web\CWebApplication.php(282): FrontController->run()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=front/goodsList&page=2
+in D:\wamp\www\shops\protected\views\front\list_xml.php (5)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (45)
+in D:\wamp\www\shops\index.php (13)
+2014/04/12 13:32:23 [error] [php] Undefined offset: 0 (D:\wamp\www\shops\protected\views\front\list_xml.php:5)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): FrontController->renderFile()
+#1 D:\wamp\www\shops\protected\controllers\FrontController.php(45): FrontController->renderPartial()
+#2 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): FrontController->actionGoodsList()
+#3 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 D:\wamp\www\yii\framework\web\CController.php(286): FrontController->runAction()
+#5 D:\wamp\www\yii\framework\web\CController.php(265): FrontController->runActionWithFilters()
+#6 D:\wamp\www\yii\framework\web\CWebApplication.php(282): FrontController->run()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=front/goodsList&page=2
+in D:\wamp\www\shops\protected\views\front\list_xml.php (5)
+in D:\wamp\www\shops\protected\controllers\FrontController.php (45)
+in D:\wamp\www\shops\index.php (13)
+2014/04/15 07:12:26 [error] [php] Comments starting with '#' are deprecated in protected/data/temp_config/10003.config on line 1 (D:\wamp\www\shops\protected\views\site\index.php:5)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(869): SiteController->renderFile()
+#2 D:\wamp\www\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#3 D:\wamp\www\shops\protected\controllers\SiteController.php(32): SiteController->render()
+#4 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#5 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\wamp\www\yii\framework\web\CController.php(286): SiteController->runAction()
+#7 D:\wamp\www\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/
+in D:\wamp\www\shops\protected\views\site\index.php (5)
+in D:\wamp\www\shops\protected\controllers\SiteController.php (32)
+in D:\wamp\www\shops\index.php (13)
+2014/04/15 08:09:56 [error] [php] Use of undefined constant i - assumed 'i' (D:\wamp\www\shops\protected\views\template\list.php:19)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): TemplateController->renderFile()
+#1 D:\wamp\www\yii\framework\web\CController.php(782): TemplateController->renderPartial()
+#2 D:\wamp\www\shops\protected\controllers\TemplateController.php(33): TemplateController->render()
+#3 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): TemplateController->actionList()
+#4 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/list
+in D:\wamp\www\shops\protected\views\template\list.php (19)
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (33)
+in D:\wamp\www\shops\index.php (13)
+2014/04/15 08:10:17 [error] [php] Trying to get property of non-object (D:\wamp\www\shops\protected\views\template\list.php:19)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): TemplateController->renderFile()
+#1 D:\wamp\www\yii\framework\web\CController.php(782): TemplateController->renderPartial()
+#2 D:\wamp\www\shops\protected\controllers\TemplateController.php(33): TemplateController->render()
+#3 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): TemplateController->actionList()
+#4 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/list
+in D:\wamp\www\shops\protected\views\template\list.php (19)
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (33)
+in D:\wamp\www\shops\index.php (13)
+2014/04/15 08:10:56 [error] [php] Trying to get property of non-object (D:\wamp\www\shops\protected\views\template\list.php:19)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): TemplateController->renderFile()
+#1 D:\wamp\www\yii\framework\web\CController.php(782): TemplateController->renderPartial()
+#2 D:\wamp\www\shops\protected\controllers\TemplateController.php(33): TemplateController->render()
+#3 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): TemplateController->actionList()
+#4 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/list
+in D:\wamp\www\shops\protected\views\template\list.php (19)
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (33)
+in D:\wamp\www\shops\index.php (13)
+2014/04/15 08:12:23 [error] [php] Trying to get property of non-object (D:\wamp\www\shops\protected\views\template\list.php:21)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): TemplateController->renderFile()
+#1 D:\wamp\www\yii\framework\web\CController.php(782): TemplateController->renderPartial()
+#2 D:\wamp\www\shops\protected\controllers\TemplateController.php(33): TemplateController->render()
+#3 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): TemplateController->actionList()
+#4 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/list
+in D:\wamp\www\shops\protected\views\template\list.php (21)
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (33)
+in D:\wamp\www\shops\index.php (13)
+2014/04/15 08:13:24 [error] [php] Trying to get property of non-object (D:\wamp\www\shops\protected\views\template\list.php:22)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): TemplateController->renderFile()
+#1 D:\wamp\www\yii\framework\web\CController.php(782): TemplateController->renderPartial()
+#2 D:\wamp\www\shops\protected\controllers\TemplateController.php(33): TemplateController->render()
+#3 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): TemplateController->actionList()
+#4 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/list
+in D:\wamp\www\shops\protected\views\template\list.php (22)
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (33)
+in D:\wamp\www\shops\index.php (13)
+2014/04/15 09:42:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdShop/update".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdShop/update')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdShop/update&id=1
+HTTP_REFERER=http://localhost/shops/index.php?r=template/list
+---
+2014/04/15 09:44:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\shops\protected\controllers\CmsShopController.php:157
+Stack trace:
+#0 D:\wamp\www\shops\protected\controllers\CmsShopController.php(89): CmsShopController->loadModel('1')
+#1 [internal function]: CmsShopController->actionUpdate('1')
+#2 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CmsShopController), Array)
+#3 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CmsShopController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#13 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('CmsShop/update')
+#14 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\wamp\www\shops\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/shops/index.php?r=CmsShop/update&id=1
+HTTP_REFERER=http://localhost/shops/index.php?r=site/login
+---
+2014/04/15 09:46:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\shops\protected\controllers\CmsShopController.php:158
+Stack trace:
+#0 D:\wamp\www\shops\protected\controllers\CmsShopController.php(90): CmsShopController->loadModel(1)
+#1 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): CmsShopController->actionUpdate()
+#2 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#11 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('CmsShop/update')
+#12 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\shops\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/shops/index.php?r=CmsShop/update&id=1
+HTTP_REFERER=http://localhost/shops/index.php?r=site/login
+---
+2014/04/15 09:52:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "use".' in D:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('use')
+#1 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('use')
+#2 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('template/use')
+#3 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\wamp\www\shops\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/shops/index.php?r=template/use&id=10003
+HTTP_REFERER=http://localhost/shops/index.php?r=template/list
+---
+2014/04/15 10:00:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php?r=template/use&id=10003
+---
+2014/04/15 10:01:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php?r=template/use&id=10003
+---
+2014/04/15 10:12:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\shops\protected\controllers\CmsShopController.php:158
+Stack trace:
+#0 D:\wamp\www\shops\protected\controllers\CmsShopController.php(90): CmsShopController->loadModel(1)
+#1 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): CmsShopController->actionUpdate()
+#2 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#6 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#11 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('CmsShop/update')
+#12 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\shops\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/shops/index.php?r=CmsShop/update&id=1
+HTTP_REFERER=http://localhost/shops/index.php?r=template/list
+---
+2014/04/16 08:00:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php
+---
+2014/04/16 08:06:02 [error] [php] Cannot use a scalar value as an array (D:\wamp\www\shops\protected\components\Controller.php:18)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CmsShopController->runAction()
+#2 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CmsShopController->filterAccessControl()
+#5 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\wamp\www\yii\framework\web\CController.php(265): CmsShopController->runActionWithFilters()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CmsShopController->run()
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=CmsShop/update&id=1
+in D:\wamp\www\shops\protected\components\Controller.php (18)
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (89)
+in D:\wamp\www\shops\index.php (13)
+2014/04/16 08:17:50 [error] [exception.CException] exception 'CException' with message 'CmsShopController and its behaviors do not have a method or closure named "initTempateConfig".' in D:\wamp\www\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\wamp\www\shops\protected\controllers\CmsShopController.php(98): CComponent->__call('initTempateConf...', Array)
+#1 D:\wamp\www\shops\protected\controllers\CmsShopController.php(98): CmsShopController->initTempateConfig('10003')
+#2 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): CmsShopController->actionUpdate()
+#3 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#12 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('CmsShop/update')
+#13 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\wamp\www\shops\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/shops/index.php?r=CmsShop/update&id=1
+HTTP_REFERER=http://localhost/shops/index.php?r=wdGoods/admin
+---
+2014/04/16 08:37:17 [error] [php] simplexml_load_file(): protected/data/temp_config/10003.xml:2: parser error : Input is not proper UTF-8, indicate encoding !
+Bytes: 0xD3 0xD0 0xB6 0xE0 (D:\wamp\www\shops\protected\controllers\CmsShopController.php:85)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): CmsShopController->actionUpdate()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CmsShopController->runAction()
+#3 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CmsShopController->filterAccessControl()
+#6 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 D:\wamp\www\yii\framework\web\CController.php(265): CmsShopController->runActionWithFilters()
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CmsShopController->run()
+#10 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=CmsShop/update&id=1
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (85)
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (98)
+in D:\wamp\www\shops\index.php (13)
+2014/04/16 08:54:02 [error] [php] Undefined variable: i (D:\wamp\www\shops\protected\views\cmsShop\_form.php:54)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): CmsShopController->renderFile()
+#1 D:\wamp\www\shops\protected\views\cmsShop\update.php(21): CmsShopController->renderPartial()
+#2 D:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#3 D:\wamp\www\yii\framework\web\CBaseController.php(95): CmsShopController->renderInternal()
+#4 D:\wamp\www\yii\framework\web\CController.php(869): CmsShopController->renderFile()
+#5 D:\wamp\www\yii\framework\web\CController.php(782): CmsShopController->renderPartial()
+#6 D:\wamp\www\shops\protected\controllers\CmsShopController.php(112): CmsShopController->render()
+#7 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(49): CmsShopController->actionUpdate()
+#8 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CmsShopController->runAction()
+#10 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CmsShopController->filterAccessControl()
+#13 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\wamp\www\yii\framework\web\CController.php(265): CmsShopController->runActionWithFilters()
+#16 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CmsShopController->run()
+#17 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=CmsShop/update&id=1
+in D:\wamp\www\shops\protected\views\cmsShop\_form.php (54)
+in D:\wamp\www\shops\protected\views\cmsShop\update.php (21)
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (112)
+2014/04/16 09:12:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php
+---
+2014/04/16 09:19:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\wamp\www\shops\protected\controllers\ViewController.php:9
+Stack trace:
+#0 [internal function]: ViewController->actionIndex('2')
+#1 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ViewController), Array)
+#2 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ViewController), Object(ReflectionMethod), Array)
+#3 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('')
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('view')
+#8 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\wamp\www\shops\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/shops/index.php?r=view&id=2
+---
+2014/04/16 10:04:12 [error] [php] Undefined variable: i (D:\wamp\www\shops\protected\views\view\10003\index.php:65)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(869): ViewController->renderFile()
+#1 D:\wamp\www\shops\protected\controllers\ViewController.php(16): ViewController->renderPartial()
+#2 unknown(0): ViewController->actionIndex()
+#3 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#4 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#5 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\wamp\www\yii\framework\web\CController.php(286): ViewController->runAction()
+#7 D:\wamp\www\yii\framework\web\CController.php(265): ViewController->runActionWithFilters()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(282): ViewController->run()
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=view&id=1
+in D:\wamp\www\shops\protected\views\view\10003\index.php (65)
+in D:\wamp\www\shops\protected\controllers\ViewController.php (16)
+in D:\wamp\www\shops\index.php (13)
+2014/04/16 10:07:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "caidan2".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('caidan2')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=caidan2
+HTTP_REFERER=http://localhost/shops/index.php?r=view&id=1
+---
+2014/04/16 10:09:43 [error] [php] Undefined variable: m1 (D:\wamp\www\shops\protected\views\view\10003\index.php:52)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CBaseController.php(126): require()
+#1 D:\wamp\www\yii\framework\web\CBaseController.php(95): ViewController->renderInternal()
+#2 D:\wamp\www\yii\framework\web\CController.php(869): ViewController->renderFile()
+#3 D:\wamp\www\shops\protected\controllers\ViewController.php(16): ViewController->renderPartial()
+#4 unknown(0): ViewController->actionIndex()
+#5 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#6 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 D:\wamp\www\yii\framework\web\CController.php(286): ViewController->runAction()
+#9 D:\wamp\www\yii\framework\web\CController.php(265): ViewController->runActionWithFilters()
+#10 D:\wamp\www\yii\framework\web\CWebApplication.php(282): ViewController->run()
+#11 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=view&id=1
+in D:\wamp\www\shops\protected\views\view\10003\index.php (52)
+in D:\wamp\www\shops\protected\views\view\10003\index.php (56)
+in D:\wamp\www\shops\protected\controllers\ViewController.php (16)
+2014/04/17 01:52:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php?r=template/use&id=10003
+---
+2014/04/17 02:09:43 [error] [exception.CException] exception 'CException' with message 'Property "TemplateController.templateConfig" is not defined.' in D:\wamp\www\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\shops\protected\views\cmsShop\_form.php(87): CComponent->__get('templateConfig')
+#1 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#2 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#3 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#4 D:\wamp\www\shops\protected\views\template\use.php(6): CController->renderPartial('/cmsShop/_form', Array)
+#5 D:\wamp\www\yii\framework\web\CBaseController.php(126): require('D:\wamp\www\sho...')
+#6 D:\wamp\www\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\wamp\www\sho...', Array, true)
+#7 D:\wamp\www\yii\framework\web\CController.php(869): CBaseController->renderFile('D:\wamp\www\sho...', Array, true)
+#8 D:\wamp\www\yii\framework\web\CController.php(782): CController->renderPartial('use', Array, true)
+#9 D:\wamp\www\shops\protected\controllers\TemplateController.php(40): CController->render('use', Array)
+#10 [internal function]: TemplateController->actionUse('10003')
+#11 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(TemplateController), Array)
+#12 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(TemplateController), Object(ReflectionMethod), Array)
+#13 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#14 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#15 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('use')
+#17 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('template/use')
+#18 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 D:\wamp\www\shops\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/shops/index.php?r=template/use&id=10003
+HTTP_REFERER=http://localhost/shops/index.php?r=template/list
+---
+2014/04/17 02:23:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "preview".' in D:\wamp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CController.php(270): CController->missingAction('preview')
+#1 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('preview')
+#2 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('template/previe...')
+#3 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\wamp\www\shops\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/shops/index.php?r=template/preview&id=10003
+HTTP_REFERER=http://localhost/shops/index.php?r=template/use&id=10003
+---
+2014/04/17 04:59:12 [error] [php] Illegal offset type (D:\wamp\www\shops\protected\controllers\TemplateController.php:55)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#3 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#4 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#5 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/preview&id=10003
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (55)
+in D:\wamp\www\shops\index.php (13)
+2014/04/17 04:59:40 [error] [php] Illegal offset type (D:\wamp\www\shops\protected\controllers\TemplateController.php:55)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#3 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#4 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#5 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/preview&id=10003
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (55)
+in D:\wamp\www\shops\index.php (13)
+2014/04/17 05:02:15 [error] [php] Illegal offset type (D:\wamp\www\shops\protected\controllers\TemplateController.php:56)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#3 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#4 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#5 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/preview&id=10003
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (56)
+in D:\wamp\www\shops\index.php (13)
+2014/04/17 05:03:01 [error] [php] Illegal offset type (D:\wamp\www\shops\protected\controllers\TemplateController.php:56)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#3 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#4 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#5 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/preview&id=10003
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (56)
+in D:\wamp\www\shops\index.php (13)
+2014/04/17 05:06:42 [error] [php] Indirect modification of overloaded property CmsShop::$menus has no effect (D:\wamp\www\shops\protected\controllers\TemplateController.php:76)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#3 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#4 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#5 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/preview&id=10003
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (76)
+in D:\wamp\www\shops\index.php (13)
+2014/04/17 05:46:55 [error] [php] Indirect modification of overloaded property CmsShop::$menus has no effect (D:\wamp\www\shops\protected\controllers\TemplateController.php:75)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#3 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#4 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#5 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/preview&id=10003
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (75)
+in D:\wamp\www\shops\index.php (13)
+2014/04/17 05:48:06 [error] [php] Illegal offset type (D:\wamp\www\shops\protected\controllers\TemplateController.php:88)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 D:\wamp\www\yii\framework\web\CController.php(286): TemplateController->runAction()
+#3 D:\wamp\www\yii\framework\web\CController.php(265): TemplateController->runActionWithFilters()
+#4 D:\wamp\www\yii\framework\web\CWebApplication.php(282): TemplateController->run()
+#5 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=template/preview&id=10003
+in D:\wamp\www\shops\protected\controllers\TemplateController.php (88)
+in D:\wamp\www\shops\index.php (13)
+2014/04/17 07:25:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php?r=template/use&id=10003
+---
+2014/04/17 07:48:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php?r=cmsShop/update
+---
+2014/04/17 07:58:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdShop/update".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdShop/update')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdShop/update&id=1
+---
+2014/04/17 07:58:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php?r=wdShop/update&id=1
+---

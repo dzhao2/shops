@@ -16,18 +16,19 @@ class UserIdentity extends CUserIdentity
 	 * @return boolean whether authentication succeeds.
 	 */
 	public function authenticate()
-	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
+    {
+        $record=CmsUser::model()->findByAttributes(array('u_name'=>$this->username));
+        if($record===null)
+            $this->errorCode=self::ERROR_USERNAME_INVALID;
+        else if($record->u_password!==md5($this->password))
+            $this->errorCode=self::ERROR_PASSWORD_INVALID;
+        else
+        {
+            $this->setState('u_id', $record->u_id);
+            $this->setState('shop_id', $record->u_shop_id);
+            $this->setState('fake_shop_id', $record->u_fake_shop_id);
 			$this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
-	}
+        }
+        return !$this->errorCode;
+    }
 }

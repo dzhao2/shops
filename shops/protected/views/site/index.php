@@ -1,7 +1,10 @@
 <?php
 /* @var $this SiteController */
-
+/*
 $this->pageTitle=Yii::app()->name;
+$config = parse_ini_file('protected/data/temp_config/10003.config');
+print_r($config);
+*/
 ?>
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>

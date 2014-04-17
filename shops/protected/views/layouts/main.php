@@ -30,8 +30,9 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
+				array('label'=>'模板列表', 'url'=>array('/template/list')),
 				array('label'=>'商品管理', 'url'=>array('/wdGoods/admin')),
-				array('label'=>'店铺信息管理', 'url'=>array('/wdShop/update', 'id'=>'1')),
+				array('label'=>'店铺信息管理', 'url'=>array('/CmsShop/update', 'id'=>'1')),
 				array('label'=>'登录', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'登出 ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

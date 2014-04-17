@@ -1,0 +1,33 @@
+﻿<template>
+<id>10003</id>
+<!-- 有多少个页面 -->
+<!-- 待定pages>
+	<page type="index" include="true"/>
+	<page type="list" include="true"/>
+	<page type="item" include="true"/>
+	<page type="news" include="true"/>
+	<page type="about" include="true"/>
+</pages-->
+<!-- 店铺幻灯片配置 -->
+<menus>
+	<menu>
+		<group_id>default</group_id>
+		<title>默认菜单</title>
+		<picurl>true</picurl>
+		<linkurl>true</linkurl>
+	</menu>
+	<menu>
+		<group_id>index_slides</group_id>
+		<title>首页幻灯片</title>
+		<picurl>true</picurl>
+		<linkurl>true</linkurl>
+	</menu>
+</menus>
+<attributes>
+	<attribute>
+		<title>版权信息</title>
+		<name>copyright</name>
+		<type>string</type>
+	</attribute>
+</attributes>
+</template>

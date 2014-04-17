@@ -20,4 +20,13 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+	
+	
+	public $templateConfig;
+	public function initTemplateConfig($tempid){
+		// 读取data/temp_config下的config文件
+		try{
+		$this->templateConfig = simplexml_load_file('protected/data/temp_config/'.$tempid.'.xml');
+		}catch(Exception $e){}
+	}
 }
