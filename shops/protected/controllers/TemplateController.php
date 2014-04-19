@@ -45,7 +45,6 @@ class TemplateController extends Controller
 		$temp = $this->templateConfig;
 		$model = CmsShop::model()->findByPk( Yii::app()->user->fake_shop_id );
 		$menuArr = array();
-		$slideArr = array();
 		$attrArr = array();
 		// 获取post上来的menus
 		if(isset($_POST['menu'])){
@@ -55,8 +54,8 @@ class TemplateController extends Controller
 				$groupData = $_POST['menu'][$curTemp->group_id->__toString()];
 				if( isset($groupData) ){
 					$titArr = $groupData['title'];
-					$picurlArr = $groupData['picurl'];
-					$linkurlArr = $groupData['linkurl'];
+					$picurlArr = isset($groupData['picurl'])?$groupData['picurl']:array();
+					$linkurlArr = isset($groupData['linkurl'])?$groupData['linkurl']:array();
 					for( $j = 0 ; $j < count($titArr) ; $j ++ ){
 						$m = new CmsShopMenu;
 						$m->sm_group_id = $curTemp->group_id->__toString();
@@ -78,36 +77,6 @@ class TemplateController extends Controller
 				}
 			}
 		}
-		// 获取post上来的slides
-		if(isset($_POST['slide'])){
-			for( $i = 0 ; isset($temp->slides) && $i < count($temp->slides->slide) ; $i ++){
-				$curTemp = $temp->slides->slide[$i];
-				$groupData = $_POST['slide'][$curTemp->group_id->__toString()];
-				if( isset($groupData) ){
-					$titArr = $groupData['title'];
-					$picurlArr = $groupData['picurl'];
-					$linkurlArr = $groupData['linkurl'];
-					for( $j = 0 ; $j < count($titArr) ; $j ++ ){
-						$s = new CmsShopSlide;
-						$s->ss_group_id = $curTemp->group_id->__toString();
-						$s->ss_title = $titArr[$j];
-						if( $curTemp->picurl){
-							if( isset($picurlArr[$j]) ){
-								$s->ss_picurl = $picurlArr[$j];
-							} else 
-								continue;
-						}
-						if( $curTemp->linkurl){
-							if( isset($linkurlArr[$j]) ){
-								$s->ss_linkurl = $linkurlArr[$j];
-							} else 
-								continue;
-						}
-						array_push($slideArr, $s);
-					}
-				}
-			}
-		}
 		// 获取post上来的attributes
 		if(isset($_POST['attribute'])){
 			foreach( $_POST['attribute'] as $attrName=>$attrValue){
@@ -119,7 +88,6 @@ class TemplateController extends Controller
 		}
 		
 		$model->menus = $menuArr;
-		$model->slides = $slideArr;
 		$model->cmsAttributes = $attrArr;
 		// 选择模板来生成界面
 		$this->renderPartial('/view/'.$id.'/index',

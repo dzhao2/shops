@@ -73,7 +73,7 @@ class CmsShopController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->sh_id));
 		}
-
+		$model=$this->loadModel($id);
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -89,58 +89,30 @@ class CmsShopController extends Controller
 	{
 		$id = Yii::app()->user->fake_shop_id; // The value should come from login data
 		$model=$this->loadModel($id);
-		$this->initTemplateConfig( $model->sh_tempid );
+		$tempId = isset( $_POST['CmsShop'] ) && isset( $_POST['CmsShop']['sh_tempid']) ? $_POST['CmsShop']['sh_tempid'] : $model->sh_tempid;
+		$this->initTemplateConfig( $tempId );
 		$temp = $this->templateConfig;
 		// 检查是否存在更新信息
 		if( isset( $_POST['CmsShop'] ) )
 		{
 			// 检查title信息
 			$model->sh_title=$_POST['CmsShop']['sh_title'];
-			if( $model->validate() ) echo 'hehehe';
+			if( $model->validate() ) {
+				$transaction = Yii::app()->db->beginTransaction();
+				if( $model->sh_tempid != $tempId ){
+					for( $i = 0 ; $i < count( $model->menus ) ; $i ++ ){
+						$model->menus[$i]->delete();
+					}
+				}
+				$model->save();
+			}
+			else
+				return;
 			// [Pass]检查template相关信息
-			// 开始transaction(save shop->save slides->save menus->save attrs)
+			// 开始transaction(save shop->save menus->save attrs)
 			$transaction = Yii::app()->db->beginTransaction();
 			try{
 				$model->save();
-				// save slide
-				if(isset($_POST['slide'])){
-					$slideArr = array();
-					for( $i = 0 ; isset($temp->slides) && $i < count($temp->slides->slide) ; $i ++){
-						$curTemp = $temp->slides->slide[$i];
-						$groupData = $_POST['slide'][$curTemp->group_id->__toString()];
-						if( isset($groupData) ){
-							$titArr = $groupData['title'];
-							$picurlArr = $groupData['picurl'];
-							$linkurlArr = $groupData['linkurl'];
-							for( $j = 0 ; $j < count($model->slides) ; $j ++ ){
-								$mslide = $model->slides[$j];
-								if( $mslide->ss_group_id == $curTemp->group_id->__toString()){
-									$mslide->delete();
-								}
-							}
-							for( $j = 0 ; $j < count($titArr) ; $j ++ ){
-								$s = new CmsShopSlide;
-								$s->ss_shop_id = $model->sh_id;
-								$s->ss_group_id = $curTemp->group_id->__toString();
-								$s->ss_title = $titArr[$j];
-								$s->ss_index = $j+1;
-								if( $curTemp->picurl){
-									if( isset($picurlArr[$j]) ){
-										$s->ss_picurl = $picurlArr[$j];
-									} else 
-										continue;
-								}
-								if( $curTemp->linkurl){
-									if( isset($linkurlArr[$j]) ){
-										$s->ss_linkurl = $linkurlArr[$j];
-									} else 
-										continue;
-								}
-								$s->save();
-							}
-						}
-					}
-				}
 				// save menus
 				if(isset($_POST['menu'])){
 					// 根据group_id来取数据
@@ -149,8 +121,8 @@ class CmsShopController extends Controller
 						$groupData = $_POST['menu'][$curTemp->group_id->__toString()];
 						if( isset($groupData) ){
 							$titArr = $groupData['title'];
-							$picurlArr = $groupData['picurl'];
-							$linkurlArr = $groupData['linkurl'];
+							$picurlArr = isset($groupData['picurl'])?$groupData['picurl']:array();
+							$linkurlArr = isset($groupData['linkurl'])?$groupData['linkurl']:array();
 							for( $j = 0 ; $j < count($model->menus) ; $j ++ ){
 								$mMenu = $model->menus[$j];
 								if( $mMenu->sm_group_id == $curTemp->group_id->__toString()){

@@ -2,7 +2,7 @@
 /* @var $this CmsShopController */
 /* @var $model CmsShop */
 /* @var $form CActiveForm */
-function printMenuForm($menuConfig){
+function printMenuForm($menuConfig, $menuGroup){
 	$groupId = $menuConfig->group_id;
 ?>
 <h5>编辑<?php echo $menuConfig->title?></h5>
@@ -21,64 +21,28 @@ function printMenuForm($menuConfig){
 <script>
 $(document).ready(function(){
 	var rowId = 0, tableId = "menuTable_<?php echo $groupId; ?>", rowIdPrefix = "menuRow_<?php echo $groupId; ?>_",addRowFunc = 'addMenuRow<?php echo $groupId; ?>', deleteRowFunc = 'deleteMenuRow<?php echo $groupId; ?>', 
-	titleCell = '<td><input type="text" name="menu[<?php echo $groupId; ?>][title][]"/></td>',
-	linkurlCell = '<?php
+	titleCell = ['<td><input type="text" name="menu[<?php echo $groupId; ?>][title][]" value="','','"/></td>'],
+	linkurlCell = [<?php
 if( $menuConfig->linkurl == 'true' ){
-	?><td><input type="text" name="menu[<?php echo $groupId; ?>][linkurl][]"/></td><?php
-}?>',
-	picurlCell = '<?php
+	?>'<td><input type="text" name="menu[<?php echo $groupId; ?>][linkurl][]" value="','','"/></td>'<?php
+}?>],
+	picurlCell = [<?php
 if( $menuConfig->picurl == 'true' ){
-	?><td><input type="text" name="menu[<?php echo $groupId; ?>][picurl][]"/></td><?php
-} ?>';
-	window[addRowFunc] =
-	function (){
-		rowId++;
-		$('<tr id="'+rowIdPrefix+rowId+'">'+titleCell+linkurlCell+picurlCell+'<td><button onclick="'+deleteRowFunc+'('+rowId+');return false;">删除</button> <button onclick="'+addRowFunc+'();return false;">添加</button></td></tr>').insertAfter($('#' + tableId +' tr:last-child'));
-	};
-	window[deleteRowFunc] = 
-	function(id){
-		$('#'+rowIdPrefix+id).remove();
-		if( $('#'+tableId+' tr').length == 1 )
-			window[addRowFunc]();
-	}
-	window[addRowFunc]();
-});
-</script>
-<?php
-}
-function printSlideForm($slideConfig){
-	$slideGroupId = $slideConfig->group_id;
-?>
-
-<h5>编辑<?php echo $slideConfig->title; ?></h5>
-<table id="slideTable_<?php echo $slideGroupId; ?>">
-	<tr>
-		<th>幻灯片标题</th><?php
-		if( $slideConfig->linkurl == 'true' ){
-		?><th>幻灯片链接</th><?php
-		} 
-		if( $slideConfig->picurl == 'true' ){
-		?><th>幻灯图片</th><?php
+	?>'<td><input type="text" name="menu[<?php echo $groupId; ?>][picurl][]" value="','','"/></td>'<?php
+} ?>];
+	function getCellHtml(temp,value){
+		if( temp && temp.length > 0 ){
+			temp[1] = value;
+			return temp.join('');
 		}
-		?><th>操作</th>
-	</tr>
-</table>
-<script>
-$(document).ready(function(){
-	var rowId = 0, tableId = "slideTable_<?php echo $slideGroupId; ?>", rowIdPrefix = "slideRow_<?php echo $slideGroupId; ?>_",addRowFunc = 'addSlideRow<?php echo $slideGroupId; ?>', deleteRowFunc = 'deleteSlideRow<?php echo $slideGroupId; ?>', 
-	titleCell = '<td><input type="text" name="slide[<?php echo $slideGroupId; ?>][title][]"/></td>',
-	linkurlCell = '<?php
-if( $slideConfig->linkurl == 'true' ){
-	?><td><input type="text" name="slide[<?php echo $slideGroupId; ?>][linkurl][]"/></td><?php
-}?>',
-	picurlCell = '<?php
-if( $slideConfig->picurl == 'true' ){
-	?><td><input type="text" name="slide[<?php echo $slideGroupId; ?>][picurl][]"/></td><?php
-} ?>';
+		return '';
+	}
 	window[addRowFunc] =
-	function (){
+	function (menuData){
+		console.log('menuData', menuData);
+		menuData = menuData || {'title':'','picurl':'','linkurl':'','desc':''}
 		rowId++;
-		$('<tr id="'+rowIdPrefix+rowId+'">'+titleCell+linkurlCell+picurlCell+'<td><button onclick="'+deleteRowFunc+'('+rowId+');return false;">删除</button> <button onclick="'+addRowFunc+'();return false;">添加</button></td></tr>').insertAfter($('#' + tableId +' tr:last-child'));
+		$('<tr id="'+rowIdPrefix+rowId+'">'+getCellHtml(titleCell,menuData.title)+getCellHtml(linkurlCell,menuData.linkurl)+getCellHtml(picurlCell,menuData.picurl)+'<td><button onclick="'+deleteRowFunc+'('+rowId+');return false;">删除</button> <button onclick="'+addRowFunc+'();return false;">添加</button></td></tr>').insertAfter($('#' + tableId +' tr:last-child'));
 	};
 	window[deleteRowFunc] = 
 	function(id){
@@ -86,15 +50,31 @@ if( $slideConfig->picurl == 'true' ){
 		if( $('#'+tableId+' tr').length == 1 )
 			window[addRowFunc]();
 	}
-	window[addRowFunc]();
+	<?php
+		if( isset( $menuGroup ) && count($menuGroup) > 0 ){
+		for( $i=0 ; $i < count( $menuGroup ) ; $i ++ ){
+			$curmenu = $menuGroup[$i];
+		?>window[addRowFunc]({
+		'picurl':'<?php echo CHtml::encode($curmenu->sm_picurl); ?>',
+		'title':'<?php echo CHtml::encode($curmenu->sm_title); ?>',
+		'desc':'<?php echo CHtml::encode($curmenu->sm_desc); ?>',
+		'linkurl':'<?php echo CHtml::encode($curmenu->sm_linkurl); ?>'
+		});<?php
+		}
+	} 
+	else 
+	{ 
+	?>window[addRowFunc]();<?php 
+	} 
+	?>
 });
 </script>
 <?php
 }
-function printAttributeForm($attrConfig){
+function printAttributeForm($attrConfig, $attrValue){
 ?>
 <div class="row">
-	<?php echo $attrConfig->title;?>：<input name="attribute[<?php echo $attrConfig->name?>]" type="text" />
+	<?php echo $attrConfig->title;?>：<input name="attribute[<?php echo $attrConfig->name?>]" type="text" value="<?php echo $attrValue; ?>" />
 </div>
 <?php
 }
@@ -110,7 +90,7 @@ function printAttributeForm($attrConfig){
 	<p class="note">带 <span class="required">*</span> 号的为必填项</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+	<input type="hidden" name="CmsShop[sh_tempid]" value="<?php echo $model->sh_tempid ?>"/>
 	<div class="row">
 		<?php echo $form->labelEx($model,'sh_title'); ?>
 		<?php echo $form->textField($model,'sh_title',array('size'=>45,'maxlength'=>45)); ?>
@@ -123,18 +103,20 @@ function printAttributeForm($attrConfig){
 	// 1.2 显示初始菜单个数
 	// 1.3 根据配置，显示菜单配置项(是否有标题，链接地址，是否有图片等）
 	// 1.4 后面跟添加删除按钮
+	
 	for( $i = 0 ; isset($temp->menus) && $i < count($temp->menus->menu) ; $i ++){
-		printMenuForm( $temp->menus->menu[$i] );
+		$groupId = $temp->menus->menu[$i]->group_id->__toString();
+		
+		$groupData = $model->getMenuGroup($groupId);
+		printMenuForm( $temp->menus->menu[$i], $groupData );
 	}
 	
-	/* 2. 幻灯片编辑 */
-	for( $i = 0 ; isset($temp->slides) && $i < count($temp->slides->slide) ; $i ++){
-		printSlideForm( $temp->slides->slide[$i] );
-	}
-	/* 3. 其他属性编辑 */
-	// 3.1 属性名及其输入框
+	/* 2. 其他属性编辑 */
+	// 2.1 属性名及其输入框
 	for( $i=0 ; isset($temp->attributes) && $i < count($temp->attributes->attribute) ; $i ++ ){
-		printAttributeForm( $temp->attributes->attribute[$i]);
+		
+		printAttributeForm( $temp->attributes->attribute[$i], 
+		$model->getCmsAttribute($temp->attributes->attribute[$i]->name->__toString()));
 	}
 ?>
 

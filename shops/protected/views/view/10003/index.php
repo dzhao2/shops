@@ -43,21 +43,11 @@ document.addEventListener('DOMContentLoaded', loaded, false);
 <ul id="thelist">
 <?php 
 
-	$slideGroup = array();
-	for( $i = 0 ; $i < count( $model->slides ) ; $i ++ ) {
-		if( $model->slides[$i]->ss_group_id == 'index' )
-			array_push( $slideGroup , $model->slides[$i]);
-	}
-	function slideCompare($s1, $s2){
-		if( $s1->ss_index > $s2->ss_index )
-			return 1;
-		return -1;
-	}
-	usort( $slideGroup, 'slideCompare');
+	$slideGroup = $model->getMenuGroup('index_slides');
 	for( $i = 0 ; $i < count( $slideGroup ) ; $i ++ ){
 		$curSlide = $slideGroup[$i];
 	?>
-<li><p></p><a href="<?php echo CHtml::encode($curSlide->ss_linkurl); ?>" ><img src="<?php echo CHtml::encode($curSlide->ss_picurl);?>"></a></li>
+<li><p></p><a href="<?php echo CHtml::encode($curSlide->sm_linkurl); ?>" ><img src="<?php echo CHtml::encode($curSlide->sm_picurl);?>"></a></li>
 	<?php
 	}
 ?></ul>

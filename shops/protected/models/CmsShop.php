@@ -47,7 +47,6 @@ class CmsShop extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'menus'=>array(self::HAS_MANY, 'CmsShopMenu', 'sm_shop_id'),
-			'slides'=>array(self::HAS_MANY, 'CmsShopSlide', 'ss_shop_id'),
 			'cmsAttributes'=>array(self::HAS_MANY, 'CmsShopAttribute', 'sa_shop_id'),
 		);
 	}
@@ -104,5 +103,45 @@ class CmsShop extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	private $menuGroupMap ;
+	public function initMenuGroup(){
+		$this->menuGroupMap = array();
+		for( $i = 0 , $len = count( $this->menus ); $i < $len ; $i ++ ){
+			$menu = $this->menus[$i];
+			if( !isset($this->menuGroupMap[$menu->sm_group_id]) ){
+				$this->menuGroupMap[$menu->sm_group_id] = array();
+			} 
+			
+			array_push( $this->menuGroupMap[$menu->sm_group_id], $menu );
+		}
+		foreach( $this->menuGroupMap as $group ){
+			usort( $group, 'self::menuCompare');
+		}
+	}
+	private
+	function menuCompare($m1, $m2){
+		if( $m1->sm_index > $m2->sm_index )
+			return 1;
+		return -1;
+	}
+	public function getMenuGroup($groupId){
+		if( !isset($this->menuGroupMap) ){
+			$this->initMenuGroup();
+		}
+		if( isset($this->menuGroupMap[ $groupId ] ) )
+			return $this->menuGroupMap[ $groupId ];
+		return array();
+	}
+	private $cmsAttributeMap;
+	public function getCmsAttribute($attrName){
+		if( !isset( $this->cmsAttributeMap ) ) {
+			$this->cmsAttributeMap = array();
+			foreach( $this->cmsAttributes as $attr ) {
+				$this->cmsAttributeMap[ $attr->sa_name] = $attr->sa_value;
+			}
+		}
+		return isset($this->cmsAttributeMap[$attrName])?$this->cmsAttributeMap[$attrName]:'';
 	}
 }

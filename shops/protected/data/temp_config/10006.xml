@@ -1,0 +1,81 @@
+﻿<template>
+<id>10006</id>
+<!-- 有多少个页面 -->
+<!-- 待定pages>
+	<page type="index" include="true"/>
+	<page type="list" include="true"/>
+	<page type="item" include="true"/>
+	<page type="news" include="true"/>
+	<page type="about" include="true"/>
+</pages-->
+<!-- 店铺幻灯片配置 -->
+<menus>
+	<menu>
+		<group_id>index_slide</group_id>
+		<title>首页幻灯片</title>
+		<picurl>true</picurl>
+	</menu>
+	<menu>
+		<group_id>default</group_id>
+		<title>首页菜单</title>
+		<picurl>true</picurl>
+		<linkurl>true</linkurl>
+	</menu>
+	<menu>
+		<group_id>index_bottom</group_id>
+		<title>首页底部菜单</title>
+		<picurl>true</picurl>
+		<linkurl>true</linkurl>
+	</menu>
+</menus>
+<attributes>
+	<attribute>
+		<title>Logo</title>
+		<name>logo_url</name>
+	</attribute>
+	<attribute>
+		<title>顶部描述</title>
+		<name>top_desc</name>
+	</attribute>
+	<attribute>
+		<title>左侧图片1</title>
+		<name>left_img1</name>
+	</attribute>
+	<attribute>
+		<title>左侧图片1链接</title>
+		<name>left_img1_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>左侧图片2</title>
+		<name>left_img2</name>
+	</attribute>
+	<attribute>
+		<title>左侧图片2链接</title>
+		<name>left_img2_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>左侧图片3</title>
+		<name>left_img3</name>
+	</attribute>
+	<attribute>
+		<title>左侧图片3链接</title>
+		<name>left_img3_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>右侧图片1</title>
+		<name>right_img1</name>
+	</attribute>
+	<attribute>
+		<title>右侧图片1链接</title>
+		<name>right_img1_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>右侧描述</title>
+		<name>right_desc</name>
+	</attribute>
+	<attribute>
+		<title>右侧链接地址</title>
+		<name>right_linkurl</name>
+	</attribute>
+</attributes>
+</template>
