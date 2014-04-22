@@ -112,4 +112,16 @@ class CmsShopMenu extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function makeCopy($shopid){
+		$menu = new CmsShopMenu;
+		$menu->sm_shop_id = $shopid;
+		$menu->sm_picurl = $this->sm_picurl;
+		$menu->sm_title = $this->sm_title;
+		$menu->sm_desc = $this->sm_desc;
+		$menu->sm_linkurl = $this->sm_linkurl;
+		$menu->sm_index = $this->sm_index;
+		$menu->sm_group_id = $this->sm_group_id;
+		return $menu;
+	}
 }

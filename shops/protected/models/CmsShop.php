@@ -139,9 +139,17 @@ class CmsShop extends CActiveRecord
 		if( !isset( $this->cmsAttributeMap ) ) {
 			$this->cmsAttributeMap = array();
 			foreach( $this->cmsAttributes as $attr ) {
-				$this->cmsAttributeMap[ $attr->sa_name] = $attr->sa_value;
+				$this->cmsAttributeMap[ $attr->sa_name] = $attr;
 			}
 		}
-		return isset($this->cmsAttributeMap[$attrName])?$this->cmsAttributeMap[$attrName]:'';
+		return isset($this->cmsAttributeMap[$attrName])?$this->cmsAttributeMap[$attrName]:null;
+	}
+	
+	public function getCmsAttributeValue($attrName){
+		$attr = $this->getCmsAttribute($attrName);
+		if( isset( $attr ) ){
+			return $attr->sa_value;
+		}
+		return '';
 	}
 }

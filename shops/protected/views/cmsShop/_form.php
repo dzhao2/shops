@@ -116,13 +116,16 @@ function printAttributeForm($attrConfig, $attrValue){
 	for( $i=0 ; isset($temp->attributes) && $i < count($temp->attributes->attribute) ; $i ++ ){
 		
 		printAttributeForm( $temp->attributes->attribute[$i], 
-		$model->getCmsAttribute($temp->attributes->attribute[$i]->name->__toString()));
+		$model->getCmsAttributeValue($temp->attributes->attribute[$i]->name->__toString()));
 	}
 ?>
 
 	<div class="row buttons">
 		<input type="button" onclick="save()" value="保存"/>
 		<input type="button" onclick="preview()" value="预览"/>
+		<?php if($this->id == 'cmsShop'){ ?>
+		<input type="button" onclick="publish()" value="发布"/>
+		<?php } ?>
 	</div>
 <script>
 $(document).ready(function(){
@@ -138,6 +141,9 @@ $(document).ready(function(){
 		$form.attr('target','_blank');
 		$form.submit();
 	};
+	window.publish = function(){
+		window.location = '?r=cmsShop/publish';
+	}
 });
 </script>
 <?php $this->endWidget(); ?>

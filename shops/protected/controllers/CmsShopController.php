@@ -32,7 +32,7 @@ class CmsShopController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'publish'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -89,102 +89,159 @@ class CmsShopController extends Controller
 	{
 		$id = Yii::app()->user->fake_shop_id; // The value should come from login data
 		$model=$this->loadModel($id);
-		$tempId = isset( $_POST['CmsShop'] ) && isset( $_POST['CmsShop']['sh_tempid']) ? $_POST['CmsShop']['sh_tempid'] : $model->sh_tempid;
-		$this->initTemplateConfig( $tempId );
+		$newTemplate = false;
+		if( isset( $_POST['CmsShop'] ) && isset( $_POST['CmsShop']['sh_tempid']) && $model->sh_tempid != $_POST['CmsShop']['sh_tempid'] ) { 
+			$model->sh_tempid = $_POST['CmsShop']['sh_tempid'];
+			$newTemplate = true;
+		}
+		$this->initTemplateConfig( $model->sh_tempid );
 		$temp = $this->templateConfig;
 		// 检查是否存在更新信息
-		if( isset( $_POST['CmsShop'] ) )
-		{
+		do{
+			if( !isset( $_POST['CmsShop'] ) ) break;
 			// 检查title信息
 			$model->sh_title=$_POST['CmsShop']['sh_title'];
-			if( $model->validate() ) {
-				$transaction = Yii::app()->db->beginTransaction();
-				if( $model->sh_tempid != $tempId ){
-					for( $i = 0 ; $i < count( $model->menus ) ; $i ++ ){
-						$model->menus[$i]->delete();
-					}
-				}
-				$model->save();
-			}
-			else
-				return;
 			// [Pass]检查template相关信息
+			if( !$model->validate() ) break;
 			// 开始transaction(save shop->save menus->save attrs)
 			$transaction = Yii::app()->db->beginTransaction();
 			try{
-				$model->save();
-				// save menus
-				if(isset($_POST['menu'])){
-					// 根据group_id来取数据
-					for( $i = 0 ; isset($temp->menus) && $i < count($temp->menus->menu) ; $i ++){
-						$curTemp = $temp->menus->menu[$i];
-						$groupData = $_POST['menu'][$curTemp->group_id->__toString()];
-						if( isset($groupData) ){
-							$titArr = $groupData['title'];
-							$picurlArr = isset($groupData['picurl'])?$groupData['picurl']:array();
-							$linkurlArr = isset($groupData['linkurl'])?$groupData['linkurl']:array();
-							for( $j = 0 ; $j < count($model->menus) ; $j ++ ){
-								$mMenu = $model->menus[$j];
-								if( $mMenu->sm_group_id == $curTemp->group_id->__toString()){
-									$mMenu->delete();
-								}
+			if( $newTemplate ){	// 如果换模板，则删除之前的数据
+				for( $i = 0 ; $i < count( $model->menus ) ; $i ++ ){
+					$model->menus[$i]->delete();
+				}
+				for( $i = 0 ; $i < count($model->cmsAttributes ) ; $i ++ ){
+					$model->cmsAttributes[$i]->delete();
+				}
+				$model->menus = array();
+				$model->cmsAttributes = array();
+			}
+			$model->save();
+			// save menus
+			if(isset($_POST['menu'])){
+				// 根据group_id来取数据
+				for( $i = 0 ; isset($temp->menus) && $i < count($temp->menus->menu) ; $i ++){
+					$curTemp = $temp->menus->menu[$i];
+					$groupData = $_POST['menu'][$curTemp->group_id->__toString()];
+					if( isset($groupData) ){
+						$titArr = $groupData['title'];
+						$picurlArr = isset($groupData['picurl'])?$groupData['picurl']:array();
+						$linkurlArr = isset($groupData['linkurl'])?$groupData['linkurl']:array();
+						for( $j = 0 ; $j < count($model->menus) ; $j ++ ){
+							$mMenu = $model->menus[$j];
+							if( $mMenu->sm_group_id == $curTemp->group_id->__toString()){
+								$mMenu->delete();
 							}
-							for( $j = 0 ; $j < count($titArr) ; $j ++ ){
-								$m = new CmsShopMenu;
-								$m->sm_shop_id = $model->sh_id;
-								$m->sm_group_id = $curTemp->group_id->__toString();
-								$m->sm_title = $titArr[$j];
-								$m->sm_index = $j+1;
-								if( $curTemp->picurl ){
-									if( isset($picurlArr[$j]) ){
-										$m->sm_picurl = $picurlArr[$j];
-									} else 
-										continue;
-								}
-								if( $curTemp->linkurl){
-									if( isset($linkurlArr[$j]) ){
-										$m->sm_linkurl = $linkurlArr[$j];
-									} else 
-										continue;
-								}
-								$m->save();
+						}
+						for( $j = 0 ; $j < count($titArr) ; $j ++ ){
+							$m = new CmsShopMenu;
+							$m->sm_shop_id = $model->sh_id;
+							$m->sm_group_id = $curTemp->group_id->__toString();
+							$m->sm_title = $titArr[$j];
+							$m->sm_index = $j+1;
+							if( $curTemp->picurl ){
+								if( isset($picurlArr[$j]) ){
+									$m->sm_picurl = $picurlArr[$j];
+								} else 
+									continue;
 							}
+							if( $curTemp->linkurl){
+								if( isset($linkurlArr[$j]) ){
+									$m->sm_linkurl = $linkurlArr[$j];
+								} else 
+									continue;
+							}
+							$m->save();
 						}
 					}
 				}
-				// save cmsAttributes
-				
-				// 获取post上来的attributes
-				if(isset($_POST['attribute'])){
-					foreach( $_POST['attribute'] as $attrName=>$attrValue){
-						$attr = null;
-						for( $i = 0, $len = count($model->cmsAttributes) ;
-							$i < $len ; $i ++ ){
-							$attrTemp = $model->cmsAttributes[$i];
-							if( $attrTemp->sa_name == $attrName ){
-								$attr = $attrTemp;
-								break;
-							}
+			}
+			// save cmsAttributes
+			
+			// 获取post上来的attributes
+			if(isset($_POST['attribute'])){
+				foreach( $_POST['attribute'] as $attrName=>$attrValue){
+					$attr = null;
+					for( $i = 0, $len = count($model->cmsAttributes) ;
+						$i < $len ; $i ++ ){
+						$attrTemp = $model->cmsAttributes[$i];
+						if( $attrTemp->sa_name == $attrName ){
+							$attr = $attrTemp;
+							break;
 						}
-						if( $attr == null ){						
-							$attr = new CmsShopAttribute;
-							$attr->sa_shop_id = $model->sh_id;
-						} 
-						$attr->sa_name = $attrName;
-						$attr->sa_value = $attrValue;
-						$attr->save();
 					}
+					if( $attr == null ){						
+						$attr = new CmsShopAttribute;
+						$attr->sa_shop_id = $model->sh_id;
+					} 
+					$attr->sa_name = $attrName;
+					$attr->sa_value = $attrValue;
+					$attr->save();
 				}
-				$transaction->commit();
+			}
+			$transaction->commit();
+			$model = $this->loadModel($id);
 			}catch( Exception $e ){
 				var_dump($e);
 				$transaction->rollback();
 			}
-		}
+		}while(false);
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionPublish(){
+		$fakeShopId = Yii::app()->user->fake_shop_id; 
+		$shopId = Yii::app()->user->shop_id; 
+		if( !isset( $fakeShopId ) || !isset( $shopId ) ){
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			return;
+		}
+		$fakeShop = $this->loadModel($fakeShopId);
+		$shop = $this->loadModel($shopId);
+		$transaction = Yii::app()->db->beginTransaction();
+		try{
+			// attribute publish
+			if( $fakeShop->sh_tempid != $shop->sh_tempid ) {
+				for( $i = 0 ; $i < count($shop->cmsAttributes) ; $i ++ ){
+					$shop->cmsAttributes[$i]->delete();
+				}
+				for( $i = 0 ; $i < count( $fakeShop->cmsAttributes); $i ++){
+					$fakeShop->cmsAttributes[$i]->makeCopy($shop->sh_id)->save();
+				}
+			} else {
+				for( $i = 0 ; $i < count($fakeShop->cmsAttributes) ; $i ++ ){
+					$fakeAttr = $fakeShop->cmsAttributes[$i];
+					$attr = $shop->getCmsAttribute($fakeAttr->sa_name);
+					if( !isset( $attr) ){
+						$fakeAttr->makeCopy($shop->sh_id)->save();
+					} else {
+						// var_dump($attr);
+						if( $attr->sa_value != $fakeAttr->sa_value ){
+							$attr->sa_value = $fakeAttr->sa_value;
+							$attr->save();
+						}
+					}
+				}
+			}
+			// menu publish
+			for( $i = 0 ; $i < count($shop->menus) ; $i ++ ){
+				$shop->menus[$i]->delete();
+			}
+			for( $i = 0 ; $i < count( $fakeShop->menus) ; $i ++ ){
+				$fakeShop->menus[$i]->makeCopy($shop->sh_id)->save();
+			}
+			// shop data publish
+			$shop->sh_tempid = $fakeShop->sh_tempid;
+			$shop->sh_title = $fakeShop->sh_title;
+			$shop->save();
+			$transaction->commit();
+		}catch(Exception $e ) {
+			$transaction->rollback();
+		}
+		$this->redirect(array('update'));
 	}
 
 	/**

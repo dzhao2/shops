@@ -99,4 +99,12 @@ class CmsShopAttribute extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function makeCopy($shopid){
+		$attr = new CmsShopAttribute;
+		$attr->sa_shop_id = $shopid;
+		$attr->sa_name = $this->sa_name;
+		$attr->sa_value= $this->sa_value;
+		return $attr;
+	}
 }

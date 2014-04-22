@@ -35,6 +35,7 @@ class TemplateController extends Controller
 	public function actionUse($id){
 		$this->initTemplateConfig($id);
 		$model = CmsShop::model()->findByPk(1);
+		$model->sh_tempid = $id;
 		$this->render('use',array(
 			'model'=>$model,
 		));

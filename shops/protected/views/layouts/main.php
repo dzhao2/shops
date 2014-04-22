@@ -31,6 +31,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'模板列表', 'url'=>array('/template/list')),
+				array('label'=>'资讯内容管理', 'url'=>array('/cmsNews/admin')),
 				array('label'=>'商品管理', 'url'=>array('/wdGoods/admin')),
 				array('label'=>'店铺信息管理', 'url'=>array('/CmsShop/update', 'id'=>'1')),
 				array('label'=>'登录', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

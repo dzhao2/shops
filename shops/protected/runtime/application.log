@@ -2657,3 +2657,126 @@ Stack trace:
 REQUEST_URI=/shops/index.php?r=wdGoods/admin
 HTTP_REFERER=http://localhost/shops/index.php
 ---
+2014/04/19 06:24:08 [error] [php] Undefined index: index_slides (D:\wamp\www\shops\protected\controllers\CmsShopController.php:125)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CmsShopController->runAction()
+#1 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CmsShopController->filterAccessControl()
+#4 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): CmsShopController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CmsShopController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=cmsShop/update
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (125)
+in D:\wamp\www\shops\index.php (13)
+2014/04/19 06:24:34 [error] [php] Undefined index: index_slides (D:\wamp\www\shops\protected\controllers\CmsShopController.php:125)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CmsShopController->runAction()
+#1 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CmsShopController->filterAccessControl()
+#4 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): CmsShopController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CmsShopController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=cmsShop/update
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (125)
+in D:\wamp\www\shops\index.php (13)
+2014/04/22 07:29:23 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\wamp\www\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\wamp\www\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('publish')
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cmsShop/publish')
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/shops/index.php?r=cmsShop/publish
+HTTP_REFERER=http://localhost/shops/index.php?r=CmsShop/update&id=1
+---
+2014/04/22 07:31:37 [error] [php] Trying to get property of non-object (D:\wamp\www\shops\protected\controllers\CmsShopController.php:220)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CmsShopController->runAction()
+#1 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CmsShopController->filterAccessControl()
+#4 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): CmsShopController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CmsShopController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=cmsShop/publish
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (220)
+in D:\wamp\www\shops\index.php (13)
+2014/04/22 07:41:09 [error] [php] Trying to get property of non-object (D:\wamp\www\shops\protected\controllers\CmsShopController.php:220)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CmsShopController->runAction()
+#1 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CmsShopController->filterAccessControl()
+#4 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): CmsShopController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CmsShopController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=cmsShop/publish
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (220)
+in D:\wamp\www\shops\index.php (13)
+2014/04/22 07:41:20 [error] [php] Trying to get property of non-object (D:\wamp\www\shops\protected\controllers\CmsShopController.php:220)
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(133): CmsShopController->runAction()
+#1 D:\wamp\www\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\wamp\www\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CmsShopController->filterAccessControl()
+#4 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): CmsShopController->runActionWithFilters()
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CmsShopController->run()
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CWebApplication->run()
+REQUEST_URI=/shops/index.php?r=cmsShop/publish
+in D:\wamp\www\shops\protected\controllers\CmsShopController.php (220)
+in D:\wamp\www\shops\index.php (13)
+2014/04/22 07:52:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wdGoods/admin".' in D:\wamp\www\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wdGoods/admin')
+#1 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\wamp\www\shops\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/shops/index.php?r=wdGoods/admin
+HTTP_REFERER=http://localhost/shops/index.php?r=CmsShop/update&id=1
+---
+2014/04/22 07:54:53 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\wamp\www\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\wamp\www\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\wamp\www\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\wamp\www\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\wamp\www\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\wamp\www\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cmsNews/admin')
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/shops/index.php?r=cmsNews/admin
+HTTP_REFERER=http://localhost/shops/index.php?r=cmsNews
+---
