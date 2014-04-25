@@ -20,6 +20,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <!-- apple devices fullscreen -->
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
 		<meta name="description" content="Font Awesome, the iconic font designed for Bootstrap">
         <!-- Mobile Devices Support @end -->
 		<script src="js/jquery-1.7.1.min.js"></script>

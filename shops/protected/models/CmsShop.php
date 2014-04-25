@@ -118,10 +118,10 @@ class CmsShop extends CActiveRecord
 			array_push( $this->menuGroupMap[$menu->sm_group_id], $menu );
 		}
 		foreach( $this->menuGroupMap as $group ){
-			usort( $group, 'self::menuCompare');
+			usort( $group, array('CmsShop','menuCompare') ); //$this->menuCompare);
 		}
 	}
-	private
+	public
 	function menuCompare($m1, $m2){
 		if( $m1->sm_index > $m2->sm_index )
 			return 1;
