@@ -1,6 +1,6 @@
 <?php
 
-class CmsNewsController extends Controller
+class CmsCategoryController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -58,33 +58,33 @@ class CmsNewsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new CmsNews;
-		$model->n_shop_id = Yii::app()->user->shop_id;
+		$model=new CmsCategory;
 
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		
 		do
 		{
-			if( !isset($_POST['CmsNews']) ) break;
-			$model->attributes=$_POST['CmsNews'];
-			// set create date
-			$model->n_createdate = date("Y-m-d H:i:s", time());
-			// set update date
-			$model->n_updatedate = date("Y-m-d H:i:s", time());
-			// validate n_category_id
-			$cate = CmsCategory::model()->findByPk( $model->n_category_id );
-			
-			if( !isset($cate) || count($cate->childrenCategory) > 0 || $cate->sca_type != 0 ){
-				$model->addError('n_category_id','类别错误，请重新选择类别');
-				break;
-			} 
-			if( $model->save() )
-				$this->redirect(array('view','id'=>$model->n_id));
-		} while(false);
-	
-		$shop = CmsShop::model()->findByPk(Yii::app()->user->shop_id);
+			if( !isset($_POST['CmsCategory']) ) break;
+			$model->attributes=$_POST['CmsCategory'];
+			$model->sca_shop_id = Yii::app()->user->shop_id;
+			$parentCat = CmsCategory::model()->findByPk($_POST['CmsCategory']['sca_parent_id']);
+			if( isset($parentCat) ){
+				if($parentCat->sca_type != $_POST['CmsCategory']['sca_type'] ) {
+					
+					 $this->addError($model,'sca_type','类别类型和父类别的类型不符。'); 
+					break;
+				}
+			} else {
+				$model->sca_parent_id = 0;
+			}
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->sca_id));
+		}while(false);
+
 		
 		$this->render('create',array(
 			'model'=>$model,
-			'shop'=>$shop,
 		));
 	}
 
@@ -97,29 +97,29 @@ class CmsNewsController extends Controller
 	{
 		$model=$this->loadModel($id);
 
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
 		do
 		{
-			if( !isset($_POST['CmsNews']) ) break;
-			$model->attributes=$_POST['CmsNews'];
-			// set update date
-			$model->n_updatedate = date("Y-m-d H:i:s", time());
-			// validate n_category_id
-			$cate = CmsCategory::model()->findByPk( $model->n_category_id );
-			if( !isset($cate) || count($cate->childrenCategory) > 0 || $cate->sca_type != 0 ){
-				$model->addError('n_category_id','类别错误，请重新选择类别');
-				break;
-			} 
-			// validate n_shop_id
-			if( $model->n_shop_id != Yii::app()->user->shop_id ){
-				$model->addError('n_shop_id','权限错误，无权修改其他网站的资讯。');
-				break;
+			if( !isset($_POST['CmsCategory']) ) break;
+			$model->attributes=$_POST['CmsCategory'];
+			$model->sca_shop_id = Yii::app()->user->shop_id;
+			$parentCat = CmsCategory::model()->findByPk($_POST['CmsCategory']['sca_parent_id']);
+			 // var_dump($parentCat );
+			if( isset($parentCat) ){
+				if($parentCat->sca_type != $_POST['CmsCategory']['sca_type'] ) {
+					 $model->addError('sca_type','类别类型和父类别的类型不符。'); 
+					break;
+				}
+			} else {
+				$model->sca_parent_id = 0;
 			}
-			if( $model->save() )
-				$this->redirect(array('view','id'=>$model->n_id));
-		} while(false);
-		
-		$shop = CmsShop::model()->findByPk( Yii::app()->user->shop_id );
-		
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->sca_id));
+		}while(false);
+
+		$shop = CmsShop::model()->findByPk(Yii::app()->user->shop_id);
 		$this->render('update',array(
 			'model'=>$model,
 			'shop'=>$shop,
@@ -145,7 +145,7 @@ class CmsNewsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('CmsNews');
+		$dataProvider=new CActiveDataProvider('CmsCategory');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -156,14 +156,13 @@ class CmsNewsController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new CmsNews('search');
+		$model=new CmsCategory('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['CmsNews']))
-			$model->attributes=$_GET['CmsNews'];
-		$shop = CmsShop::model()->findByPk(Yii::app()->user->shop_id);
+		if(isset($_GET['CmsCategory']))
+			$model->attributes=$_GET['CmsCategory'];
+
 		$this->render('admin',array(
 			'model'=>$model,
-			'shop'=>$shop,
 		));
 	}
 
@@ -171,12 +170,12 @@ class CmsNewsController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return CmsNews the loaded model
+	 * @return CmsCategory the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=CmsNews::model()->findByPk($id);
+		$model=CmsCategory::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -184,11 +183,11 @@ class CmsNewsController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param CmsNews $model the model to be validated
+	 * @param CmsCategory $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='cms-news-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='cms-category-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

@@ -62,16 +62,16 @@ class CmsGoods extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'g_id' => 'G',
-			'g_shop_id' => 'G Shop',
-			'g_title' => 'G Title',
-			'g_price' => 'G Price',
-			'g_picurl' => 'G Picurl',
-			'g_createdate' => 'G Createdate',
-			'g_updatedate' => 'G Updatedate',
-			'g_detail' => 'G Detail',
-			'g_category_id' => 'G Category',
-			'g_count' => 'G Count',
+			'g_id' => 'ID',
+			'g_shop_id' => '网站ID',
+			'g_title' => '商品标题',
+			'g_price' => '商品价格',
+			'g_picurl' => '商品图片',
+			'g_createdate' => '创建日期',
+			'g_updatedate' => '更新日期',
+			'g_detail' => '详细信息',
+			'g_category_id' => '类别',
+			'g_count' => '库存',
 		);
 	}
 

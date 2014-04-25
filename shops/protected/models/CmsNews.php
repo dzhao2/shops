@@ -7,6 +7,7 @@
  * @property integer $n_id
  * @property integer $n_shop_id
  * @property string $n_title
+ * @property string $n_summary
  * @property string $n_createdate
  * @property string $n_updatedate
  * @property string $n_author
@@ -35,12 +36,13 @@ class CmsNews extends CActiveRecord
 			array('n_shop_id', 'required'),
 			array('n_shop_id, n_category_id', 'numerical', 'integerOnly'=>true),
 			array('n_title', 'length', 'max'=>280),
+			array('n_summary', 'length', 'max'=>300),
 			array('n_author', 'length', 'max'=>40),
 			array('n_picurl', 'length', 'max'=>140),
 			array('n_createdate, n_updatedate, n_content', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('n_id, n_shop_id, n_title, n_createdate, n_updatedate, n_author, n_picurl, n_content, n_category_id', 'safe', 'on'=>'search'),
+			array('n_id, n_shop_id, n_title, n_createdate, n_updatedate, n_author, n_picurl, n_content, n_summary, n_category_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,15 +63,16 @@ class CmsNews extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'n_id' => 'N',
-			'n_shop_id' => 'N Shop',
-			'n_title' => 'N Title',
-			'n_createdate' => 'N Createdate',
-			'n_updatedate' => 'N Updatedate',
-			'n_author' => 'N Author',
-			'n_picurl' => 'N Picurl',
-			'n_content' => 'N Content',
-			'n_category_id' => 'N Category',
+			'n_id' => '资讯ID',
+			'n_shop_id' => '网站ID',
+			'n_title' => '标题',
+			'n_createdate' => '创建时间',
+			'n_updatedate' => '更新时间',
+			'n_author' => '作者',
+			'n_picurl' => '代表图片地址',
+			'n_content' => '正文',
+			'n_summary' => '摘要',
+			'n_category_id' => '类别id',
 		);
 	}
 

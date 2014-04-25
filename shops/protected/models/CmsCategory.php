@@ -8,7 +8,7 @@
  * @property integer $sca_shop_id
  * @property integer $sca_parent_id
  * @property integer $sca_type
- * @property string $ssc_title
+ * @property string $sca_title
  */
 class CmsCategory extends CActiveRecord
 {
@@ -30,10 +30,10 @@ class CmsCategory extends CActiveRecord
 		return array(
 			array('sca_shop_id', 'required'),
 			array('sca_shop_id, sca_parent_id, sca_type', 'numerical', 'integerOnly'=>true),
-			array('ssc_title', 'length', 'max'=>140),
+			array('sca_title', 'length', 'max'=>140),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('sca_id, sca_shop_id, sca_parent_id, sca_type, ssc_title', 'safe', 'on'=>'search'),
+			array('sca_id, sca_shop_id, sca_parent_id, sca_type, sca_title', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,6 +45,8 @@ class CmsCategory extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'parentCategory' => array(self::HAS_ONE, 'CmsCategory', array('sca_id'=>'sca_parent_id') ),
+			'childrenCategory' => array(self::HAS_MANY, 'CmsCategory', 'sca_parent_id'),
 		);
 	}
 
@@ -54,11 +56,11 @@ class CmsCategory extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'sca_id' => 'Sca',
-			'sca_shop_id' => 'Sca Shop',
-			'sca_parent_id' => 'Sca Parent',
-			'sca_type' => 'Sca Type',
-			'ssc_title' => 'Ssc Title',
+			'sca_id' => 'ID',
+			'sca_shop_id' => '网站ID',
+			'sca_parent_id' => '父类别ID',
+			'sca_type' => '类型(资讯/商品)',
+			'sca_title' => '标题',
 		);
 	}
 
@@ -84,11 +86,17 @@ class CmsCategory extends CActiveRecord
 		$criteria->compare('sca_shop_id',$this->sca_shop_id);
 		$criteria->compare('sca_parent_id',$this->sca_parent_id);
 		$criteria->compare('sca_type',$this->sca_type);
-		$criteria->compare('ssc_title',$this->ssc_title,true);
+		$criteria->compare('sca_title',$this->sca_title,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	
+	public function shopAllCategories($shop_id){
+		$criteria=new CDbCriteria;
+		$criteria->compare('sca_shop_id',$shop_id);
+		return $this->findAll( $criteria );
 	}
 
 	/**

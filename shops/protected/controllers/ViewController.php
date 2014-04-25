@@ -10,7 +10,12 @@ class ViewController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		// 获取网站的tempid，读取其模板信息
 		// 根据模板id生成界面
-		$this->renderPartial($model->sh_tempid.'/index',
+		$page = '/index';
+		if( isset($_GET['page']) ){
+			$page = '/'.$_GET['page'];
+		}
+		$page = $model->sh_tempid.$page;
+		$this->renderPartial($page,
 		array(
 			'model'=>$model
 		));

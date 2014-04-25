@@ -1,0 +1,225 @@
+﻿<template>
+<id>10023</id>
+<!-- 有多少个页面 -->
+<!-- 待定pages>
+	<page type="index" include="true"/>
+	<page type="list" include="true"/>
+	<page type="item" include="true"/>
+	<page type="news" include="true"/>
+	<page type="about" include="true"/>
+</pages-->
+<!-- 店铺幻灯片配置 -->
+<menus>
+	<menu>
+		<group_id>index_slide</group_id>
+		<title>首页幻灯片</title>
+		<picurl>true</picurl>
+	</menu>
+</menus>
+<attributes>
+	<attribute>
+		<title>logo图片地址</title>
+		<name>logo_url</name>
+	</attribute>
+	<!-- 彩色菜单配置1 -->
+	<attribute>
+		<title>首页菜单1——名称</title>
+		<name>menu1_title</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单1——链接</title>
+		<name>menu1_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单1——颜色</title>
+		<name>menu1_color</name>
+		<default_value>#35aae7</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单1——图标</title>
+		<name>menu1_icon</name>
+		<default_value>icon-home</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单1——宽度</title>
+		<name>menu1_width</name>
+		<default_value>2</default_value>
+	</attribute>
+	<!-- 彩色菜单配置2 -->
+	<attribute>
+		<title>首页菜单2——名称</title>
+		<name>menu2_title</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单2——链接</title>
+		<name>menu2_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单2——颜色</title>
+		<name>menu2_color</name>
+		<default_value>#678ce1</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单2——图标</title>
+		<name>menu2_icon</name>
+		<default_value>icon-picture</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单2——宽度</title>
+		<name>menu2_width</name>
+		<default_value>1</default_value>
+	</attribute>
+	<!-- 彩色菜单配置3 -->
+	<attribute>
+		<title>首页菜单3——名称</title>
+		<name>menu3_title</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单3——链接</title>
+		<name>menu3_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单3——颜色</title>
+		<name>menu3_color</name>
+		<default_value>#8c67df</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单3——图标</title>
+		<name>menu3_icon</name>
+		<default_value>icon-user</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单3——宽度</title>
+		<name>menu3_width</name>
+		<default_value>1</default_value>
+	</attribute>
+	<!-- 彩色菜单配置4 -->
+	<attribute>
+		<title>首页菜单4——名称</title>
+		<name>menu4_title</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单4——链接</title>
+		<name>menu4_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单4——颜色</title>
+		<name>menu4_color</name>
+		<default_value>#84d018</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单4——图标</title>
+		<name>menu4_icon</name>
+		<default_value>icon-list-ul</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单4——宽度</title>
+		<name>menu4_width</name>
+		<default_value>2</default_value>
+	</attribute>
+	<!-- 彩色菜单配置5 -->
+	<attribute>
+		<title>首页菜单5——名称</title>
+		<name>menu5_title</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单5——链接</title>
+		<name>menu5_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单5——颜色</title>
+		<name>menu5_color</name>
+		<default_value>#14c760</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单5——图标</title>
+		<name>menu5_icon</name>
+		<default_value>icon-pencil</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单5——宽度</title>
+		<name>menu5_width</name>
+		<default_value>1</default_value>
+	</attribute>
+	<!-- 彩色菜单配置6 -->
+	<attribute>
+		<title>首页菜单6——名称</title>
+		<name>menu6_title</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单6——链接</title>
+		<name>menu6_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单6——颜色</title>
+		<name>menu6_color</name>
+		<default_value>#f3b613</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单6——图标</title>
+		<name>menu6_icon</name>
+		<default_value>icon-trophy</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单6——宽度</title>
+		<name>menu6_width</name>
+		<default_value>2</default_value>
+	</attribute>
+	<!-- 彩色菜单配置7 -->
+	<attribute>
+		<title>首页菜单7——名称</title>
+		<name>menu7_title</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单7——链接</title>
+		<name>menu7_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单7——颜色</title>
+		<name>menu7_color</name>
+		<default_value>#ff8a4a</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单7——图标</title>
+		<name>menu7_icon</name>
+		<default_value>icon-phone</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单7——宽度</title>
+		<name>menu7_width</name>
+		<default_value>1</default_value>
+	</attribute>
+	<!-- 彩色菜单配置8 -->
+	<attribute>
+		<title>首页菜单8——名称</title>
+		<name>menu8_title</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单8——链接</title>
+		<name>menu8_linkurl</name>
+	</attribute>
+	<attribute>
+		<title>首页菜单8——颜色</title>
+		<name>menu8_color</name>
+		<default_value>#fc5366</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单8——图标</title>
+		<name>menu8_icon</name>
+		<default_value>icon-spinner</default_value>
+	</attribute>
+	<attribute>
+		<title>首页菜单8——宽度</title>
+		<name>menu8_width</name>
+		<default_value>1</default_value>
+	</attribute>
+	<attribute>
+		<title>版权信息</title>
+		<name>copyright</name>
+	</attribute>
+	<attribute>
+		<title>企业电话</title>
+		<name>phone</name>
+	</attribute>
+</attributes>
+</template>

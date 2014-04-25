@@ -114,9 +114,12 @@ function printAttributeForm($attrConfig, $attrValue){
 	/* 2. 其他属性编辑 */
 	// 2.1 属性名及其输入框
 	for( $i=0 ; isset($temp->attributes) && $i < count($temp->attributes->attribute) ; $i ++ ){
+		if( $this->id == 'template' )
+			$attrValue = $temp->attributes->attribute[$i]->default_value->__toString();
+		else
+			$attrValue = $model->getCmsAttributeValue($temp->attributes->attribute[$i]->name->__toString());
 		
-		printAttributeForm( $temp->attributes->attribute[$i], 
-		$model->getCmsAttributeValue($temp->attributes->attribute[$i]->name->__toString()));
+		printAttributeForm( $temp->attributes->attribute[$i], $attrValue);
 	}
 ?>
 

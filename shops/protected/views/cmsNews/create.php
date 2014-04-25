@@ -8,11 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List CmsNews', 'url'=>array('index')),
-	array('label'=>'Manage CmsNews', 'url'=>array('admin')),
+	array('label'=>'类别列表', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create CmsNews</h1>
+<h1>发布资讯</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model, 'shop'=>$shop)); ?>

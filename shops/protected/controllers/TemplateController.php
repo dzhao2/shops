@@ -18,7 +18,10 @@ class TemplateController extends Controller
 				),
 				'10006' => array(
 					'title'=>'暖色系餐饮模板'
-				)
+				),
+				'10023' => array(
+					'title'=>'彩色系教育模板'
+				),
 			);
 		}
 	}

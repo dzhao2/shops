@@ -48,6 +48,7 @@ class CmsShop extends CActiveRecord
 		return array(
 			'menus'=>array(self::HAS_MANY, 'CmsShopMenu', 'sm_shop_id'),
 			'cmsAttributes'=>array(self::HAS_MANY, 'CmsShopAttribute', 'sa_shop_id'),
+			'categories' => array( self::HAS_MANY, 'CmsCategory', 'sca_shop_id','on'=>'sca_parent_id=0'),
 		);
 	}
 
