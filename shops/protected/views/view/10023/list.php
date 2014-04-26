@@ -64,7 +64,7 @@
 			echo 'style="left:0px;"';
 							?>>
                                 <h1>
-                                    <?php echo CHtml::encode($news->n_title);?>
+                                    <?php echo CHtml::encode($news->n_title); ?>
                                 </h1>
                                 <h2>
 								<?php echo CHtml::encode($news->n_summary);?>

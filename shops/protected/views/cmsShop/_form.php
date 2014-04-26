@@ -105,7 +105,7 @@ function printAttributeForm($attrConfig, $attrValue){
 	// 1.4 后面跟添加删除按钮
 	
 	for( $i = 0 ; isset($temp->menus) && $i < count($temp->menus->menu) ; $i ++){
-		$groupId = $temp->menus->menu[$i]->group_id->__toString();
+		$groupId = (string)$temp->menus->menu[$i]->group_id;//->__toString();
 		
 		$groupData = $model->getMenuGroup($groupId);
 		printMenuForm( $temp->menus->menu[$i], $groupData );
@@ -117,7 +117,7 @@ function printAttributeForm($attrConfig, $attrValue){
 		if( $this->id == 'template' )
 			$attrValue = $temp->attributes->attribute[$i]->default_value->__toString();
 		else
-			$attrValue = $model->getCmsAttributeValue($temp->attributes->attribute[$i]->name->__toString());
+			$attrValue = $model->getCmsAttributeValue((string)$temp->attributes->attribute[$i]->name);//->__toString());
 		
 		printAttributeForm( $temp->attributes->attribute[$i], $attrValue);
 	}
