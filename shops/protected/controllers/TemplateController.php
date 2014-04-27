@@ -13,9 +13,6 @@ class TemplateController extends Controller
 				'10003' => array(
 					'title'=>'粉色系婚庆模板'
 				),
-				'10004' => array(
-					'title'=>'黑色系家具模板'
-				),
 				'10006' => array(
 					'title'=>'暖色系餐饮模板'
 				),
@@ -24,6 +21,19 @@ class TemplateController extends Controller
 				),
 			);
 		}
+		$dir = 'protected/data/temp_config';
+		$this->tempList = array();
+	    if (false != ($handle = opendir ( $dir ))) {
+	        $i=0;
+	        while ( false !== ($file = readdir ( $handle )) ) {
+	            if ($file != "." && $file != ".."&&strpos($file,".xml")>0) {
+	                $fileId = substr($file, 0,strpos($file,".xml"));
+	                $this->tempList[$fileId] = simplexml_load_file('protected/data/temp_config/'.$file);
+	            }
+	        }
+	        //关闭句柄
+	        closedir ( $handle );
+	    }
 	}
 	public function actionList()
 	{

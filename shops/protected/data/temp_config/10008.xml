@@ -1,0 +1,25 @@
+﻿<template>
+<id>10008</id>
+<title>大方服装模板</title>
+<menus>
+	<menu>
+		<group_id>default</group_id>
+		<title>默认菜单</title>
+		<picurl>true</picurl>
+		<linkurl>true</linkurl>
+	</menu>
+	<menu>
+		<group_id>index_slides</group_id>
+		<title>首页幻灯片</title>
+		<picurl>true</picurl>
+		<linkurl>true</linkurl>
+	</menu>
+</menus>
+<attributes>
+	<attribute>
+		<title>版权信息</title>
+		<name>copyright</name>
+		<type>string</type>
+	</attribute>
+</attributes>
+</template>

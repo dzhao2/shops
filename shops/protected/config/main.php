@@ -52,7 +52,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=shop_cms',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'Pass1234',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
