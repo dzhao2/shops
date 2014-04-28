@@ -115,7 +115,7 @@ function printAttributeForm($attrConfig, $attrValue){
 	// 2.1 属性名及其输入框
 	for( $i=0 ; isset($temp->attributes) && $i < count($temp->attributes->attribute) ; $i ++ ){
 		if( $this->id == 'template' )
-			$attrValue = $temp->attributes->attribute[$i]->default_value->__toString();
+			$attrValue = (string)$temp->attributes->attribute[$i]->default_value;
 		else
 			$attrValue = $model->getCmsAttributeValue((string)$temp->attributes->attribute[$i]->name);//->__toString());
 		
