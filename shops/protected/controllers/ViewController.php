@@ -11,10 +11,14 @@ class ViewController extends Controller
 		// 获取网站的tempid，读取其模板信息
 		// 根据模板id生成界面
 		$page = 'index';
-		if( isset($_GET['page']) ){
+		$tid = $model->sh_tempid;
+		if( isset($_GET['page']) && $_GET['page']!='index'){
 			$page = $_GET['page'];
+		    if( isset( $_GET['tid'] ) ){
+			$tid = $_GET['tid'] ;
+		    }
 		}
-		$page = $page . '/' . $model->sh_tempid;
+		$page = $page . '/' . $tid;
 		$this->renderPartial($page,
 		array(
 			'model'=>$model
