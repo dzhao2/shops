@@ -158,6 +158,7 @@ class CmsNewsController extends Controller
 	{
 		$model=new CmsNews('search');
 		$model->unsetAttributes();  // clear any default values
+		$model->n_shop_id = Yii::app()->user->shop_id;
 		if(isset($_GET['CmsNews']))
 			$model->attributes=$_GET['CmsNews'];
 		$shop = CmsShop::model()->findByPk(Yii::app()->user->shop_id);

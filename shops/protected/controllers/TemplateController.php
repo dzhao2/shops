@@ -56,14 +56,14 @@ class TemplateController extends Controller
 			// 根据group_id来取数据
 			for( $i = 0 ; isset($temp->menus) && $i < count($temp->menus->menu) ; $i ++){
 				$curTemp = $temp->menus->menu[$i];
-				$groupData = $_POST['menu'][$curTemp->group_id->__toString()];
+				$groupData = $_POST['menu'][(string)$curTemp->group_id];
 				if( isset($groupData) ){
 					$titArr = $groupData['title'];
 					$picurlArr = isset($groupData['picurl'])?$groupData['picurl']:array();
 					$linkurlArr = isset($groupData['linkurl'])?$groupData['linkurl']:array();
 					for( $j = 0 ; $j < count($titArr) ; $j ++ ){
 						$m = new CmsShopMenu;
-						$m->sm_group_id = $curTemp->group_id->__toString();
+						$m->sm_group_id = (string)$curTemp->group_id;
 						$m->sm_title = $titArr[$j];
 						if( $curTemp->picurl){
 							if( isset($picurlArr[$j]) ){

@@ -158,6 +158,7 @@ class CmsCategoryController extends Controller
 	{
 		$model=new CmsCategory('search');
 		$model->unsetAttributes();  // clear any default values
+		$model->sca_shop_id = Yii::app()->user->shop_id;
 		if(isset($_GET['CmsCategory']))
 			$model->attributes=$_GET['CmsCategory'];
 

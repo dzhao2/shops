@@ -9,7 +9,7 @@
 <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="templates/wm/js/swipe.js"></script>
 <script type="text/javascript" src="templates/wm/js/zepto.js"></script>
-<title>世杰在北京</title>
+<title><?php echo CHtml::encode($model->sh_title);?></title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
         <!-- Mobile Devices Support @begin -->
@@ -119,7 +119,7 @@
 			</script>
         			<footer style="overflow:visible;">
 				<div class="weimob-copyright" style="padding-bottom:50px;">
-											<a href="/weisite/home?pid=123828&amp;bid=252784&amp;wechatid=fromUsername&amp;wxref=mp.weixin.qq.com">© 世杰在北京</a>
+											<a href="/weisite/home?pid=123828&amp;bid=252784&amp;wechatid=fromUsername&amp;wxref=mp.weixin.qq.com">© <?php echo CHtml::encode($model->getCmsAttributeValue('copyright')); ?></a>
 									</div>
 			</footer>
 				<div mark="stat_code" style="width:0px; height:0px; display:none;">
