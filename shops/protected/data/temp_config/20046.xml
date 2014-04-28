@@ -1,0 +1,15 @@
+﻿<template>
+<id>20046</id>
+<title>【备选】高端简洁模板</title>
+<thumbnail>home.png</thumbnail>
+<!-- 店铺幻灯片配置 -->
+<menus>
+</menus>
+<attributes>
+	<attribute>
+		<title>版权信息</title>
+		<name>copyright</name>
+		<type>string</type>
+	</attribute>
+</attributes>
+</template>

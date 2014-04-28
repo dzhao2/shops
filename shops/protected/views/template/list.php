@@ -20,7 +20,7 @@ li.temp-item{
 	
 	?>
 	<li class="temp-item"><a href="templates/<?php echo $id; ?>/index.html">
-		<img src="templates/<?php echo $id; ?>/jietu.gif" style="width:200px;height:300px"></a><a href="templates/<?php echo $id; ?>/index.html" style="line-height:23px;text-align:center;padding-bottom:4px;">
+		<img src="templates/<?php echo $id; ?>/<?php echo $temp->thumbnail; ?>" style="width:200px;height:300px"></a><a href="templates/<?php echo $id; ?>/index.html" style="line-height:23px;text-align:center;padding-bottom:4px;">
 		<?php echo CHtml::encode( (string)$temp->title ); ?>
 	</a><br/>
 	<button onclick="location='?r=template/use&id=<?php echo $id;?>'">应用</button>

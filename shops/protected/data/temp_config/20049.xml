@@ -1,0 +1,38 @@
+﻿<template>
+<id>20049</id>
+<title>测试呵呵模板</title>
+<thumbnail>home2.png</thumbnail>
+<!-- 店铺幻灯片配置 -->
+<menus>
+</menus>
+<attributes>
+	<attribute>
+		<title>菜单1名称</title>
+		<name>menu1</name>
+	</attribute>
+	<attribute>
+		<title>菜单2名称</title>
+		<name>menu2</name>
+	</attribute>
+	<attribute>
+		<title>菜单3名称</title>
+		<name>menu3</name>
+	</attribute>
+	<attribute>
+		<title>菜单4名称</title>
+		<name>menu4</name>
+	</attribute>
+	<attribute>
+		<title>菜单5名称</title>
+		<name>menu5</name>
+	</attribute>
+	<attribute>
+		<title>菜单6名称</title>
+		<name>menu6</name>
+	</attribute>
+	<attribute>
+		<title>版权信息</title>
+		<name>copyright</name>
+	</attribute>
+</attributes>
+</template>

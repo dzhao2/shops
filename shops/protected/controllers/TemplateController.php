@@ -8,19 +8,10 @@ class TemplateController extends Controller
 		$this->actionList();
 	}
 	public function prepareTempList(){
-		if( !isset($this->tempList) ){
-			$this->tempList = array(
-				'10003' => array(
-					'title'=>'粉色系婚庆模板'
-				),
-				'10006' => array(
-					'title'=>'暖色系餐饮模板'
-				),
-				'10023' => array(
-					'title'=>'彩色系教育模板'
-				),
-			);
+		if( isset($this->tempList) ){
+			return;
 		}
+		
 		$dir = 'protected/data/temp_config';
 		$this->tempList = array();
 	    if (false != ($handle = opendir ( $dir ))) {
@@ -104,7 +95,7 @@ class TemplateController extends Controller
 		$model->menus = $menuArr;
 		$model->cmsAttributes = $attrArr;
 		// 选择模板来生成界面
-		$this->renderPartial('/view/'.$id.'/index',
+		$this->renderPartial('/view/index/'.$id,
 		array(
 			'model'=>$model
 		));

@@ -1,6 +1,7 @@
 ﻿<template>
 <id>10013</id>
 <title>可爱餐饮类模板</title>
+<thumbnail>jietu.gif</thumbnail>
 <menus>
 	<menu>
 		<group_id>default</group_id>

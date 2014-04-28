@@ -1,6 +1,7 @@
 ﻿<template>
 <id>10001</id>
 <title>简单小铺类模板</title>
+<thumbnail>jietu.gif</thumbnail>
 <!-- 有多少个页面 -->
 <!-- 待定pages>
 	<page type="index" include="true"/>

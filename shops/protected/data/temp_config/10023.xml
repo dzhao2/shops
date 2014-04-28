@@ -1,14 +1,7 @@
 ﻿<template>
 <id>10023</id>
 <title>彩色系教育模板</title>
-<!-- 有多少个页面 -->
-<!-- 待定pages>
-	<page type="index" include="true"/>
-	<page type="list" include="true"/>
-	<page type="item" include="true"/>
-	<page type="news" include="true"/>
-	<page type="about" include="true"/>
-</pages-->
+<thumbnail>jietu.gif</thumbnail>
 <!-- 店铺幻灯片配置 -->
 <menus>
 	<menu>

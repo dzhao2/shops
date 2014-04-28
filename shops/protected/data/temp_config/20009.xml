@@ -1,17 +1,17 @@
 ﻿<template>
-<id>10011</id>
-<title>大方医疗类模板</title>
-<thumbnail>jietu.gif</thumbnail>
+<id>20009</id>
+<title>【备选】高端图文菜单模板</title>
+<thumbnail>home2.png</thumbnail>
+<!-- 店铺幻灯片配置 -->
 <menus>
 	<menu>
-		<group_id>default</group_id>
-		<title>默认菜单</title>
+		<group_id>index_slide</group_id>
+		<title>首页幻灯片</title>
 		<picurl>true</picurl>
-		<linkurl>true</linkurl>
 	</menu>
 	<menu>
-		<group_id>index_slides</group_id>
-		<title>首页幻灯片</title>
+		<group_id>index_menu</group_id>
+		<title>首页菜单</title>
 		<picurl>true</picurl>
 		<linkurl>true</linkurl>
 	</menu>

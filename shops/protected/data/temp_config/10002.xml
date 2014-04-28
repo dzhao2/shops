@@ -1,6 +1,7 @@
 ﻿<template>
 <id>10002</id>
 <title>暖色系婚纱模板</title>
+<thumbnail>jietu.gif</thumbnail>
 <menus>
 	<menu>
 		<group_id>default</group_id>
