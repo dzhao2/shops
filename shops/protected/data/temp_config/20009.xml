@@ -17,10 +17,17 @@
 	</menu>
 </menus>
 <attributes>
+        <attribute>
+                <title>商家电话</title>
+                <name>phone</name>
+        </attribute>
+	<attribute>
+                <title>logo地址</title>
+                <name>logo_url</name>
+        </attribute>
 	<attribute>
 		<title>版权信息</title>
 		<name>copyright</name>
-		<type>string</type>
 	</attribute>
 </attributes>
 </template>

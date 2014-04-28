@@ -126,7 +126,7 @@ if(isset($_GET['n_category_id'])){
 				for( $i = 0 ; $i <count($list); $i ++ ){
 					$news = $list[$i];
 				?>
-				<a class="weimob-list-item" href="?r=view&id=1&page=read&n_id=<?php echo CHtml::encode($news->n_id);?>">
+				<a class="weimob-list-item" href="?r=view&id=<?php echo $model->sh_id; ?>&page=read&n_id=<?php echo CHtml::encode($news->n_id);?>&tid=10023">
 				<?php if( $news->n_picurl != '' ){?>
 					<div class="weimob-list-item-image" style="background-image:url(<?php echo CHtml::encode($news->n_picurl); ?>)"></div>
 				<?php } ?>
@@ -143,7 +143,7 @@ if(isset($_GET['n_category_id'])){
         </div>
     </div>        			<footer style="overflow:visible;">
 				<div class="weimob-copyright" style="padding-bottom:50px;">
-											<a href="#">? <?php echo CHtml::encode($model->getCmsAttributeValue('copyright'));?></a>
+											<a href="#">© <?php echo CHtml::encode($model->getCmsAttributeValue('copyright'));?></a>
 									</div>
 			</footer>
 				<div mark="stat_code" style="width:0px; height:0px; display:none;">

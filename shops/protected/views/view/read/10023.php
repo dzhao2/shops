@@ -117,8 +117,7 @@
         </div>
         <footer style="overflow:visible; margin-top:0px">
             <div class="weimob-copyright" style="padding-bottom:50px;">
-                <a href="/weisite/home?pid=20539&amp;bid=37786&amp;wechatid=oOyWgjgeBwD1WBNzQvE7gpKEs448&amp;wxref=mp.weixin.qq.com">
-                     <?php echo CHtml::encode($model->getCmsAttributeValue('copyright')); ?>
+                <a href="/weisite/home?pid=20539&amp;bid=37786&amp;wechatid=oOyWgjgeBwD1WBNzQvE7gpKEs448&amp;wxref=mp.weixin.qq.com">© <?php echo CHtml::encode($model->getCmsAttributeValue('copyright')); ?>
                 </a>
             </div>
         </footer>
