@@ -1,0 +1,14 @@
+﻿<template>
+<id>20037</id>
+<title>经典大方模板</title>
+<thumbnail>home2.png</thumbnail>
+<!-- 店铺幻灯片配置 -->
+<menus>
+</menus>
+<attributes>
+	<attribute>
+		<title>版权信息</title>
+		<name>copyright</name>
+	</attribute>
+</attributes>
+</template>
