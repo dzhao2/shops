@@ -125,14 +125,23 @@ class CmsShopController extends Controller
 					$groupData = $_POST['menu'][(string)$curTemp->group_id];
 					if( isset($groupData) ){
 						$titArr = $groupData['title'];
-						$picurlArr = isset($groupData['picurl'])?$groupData['picurl']:array();
-						$linkurlArr = isset($groupData['linkurl'])?$groupData['linkurl']:array();
+						
 						for( $j = 0 ; $j < count($model->menus) ; $j ++ ){
 							$mMenu = $model->menus[$j];
 							if( $mMenu->sm_group_id == (string)$curTemp->group_id){
 								$mMenu->delete();
 							}
 						}
+						
+						$picurlArr = isset($groupData['picurl'])?$groupData['picurl']:array();
+						$linkurlArr = isset($groupData['linkurl'])?$groupData['linkurl']:array();
+						$iconArr = isset($groupData['icon'])?$groupData['icon']:array();
+						$attr1Arr = isset($groupData['attr1'])?$groupData['attr1']:array();
+						$attr2Arr = isset($groupData['attr2'])?$groupData['attr2']:array();
+						$attr3Arr = isset($groupData['attr3'])?$groupData['attr3']:array();
+						$attr4Arr = isset($groupData['attr4'])?$groupData['attr4']:array();
+						$attr5Arr = isset($groupData['attr5'])?$groupData['attr5']:array();
+						
 						for( $j = 0 ; $j < count($titArr) ; $j ++ ){
 							$m = new CmsShopMenu;
 							$m->sm_shop_id = $model->sh_id;
@@ -148,6 +157,42 @@ class CmsShopController extends Controller
 							if( $curTemp->linkurl){
 								if( isset($linkurlArr[$j]) ){
 									$m->sm_linkurl = $linkurlArr[$j];
+								} else 
+									continue;
+							}
+							if( $curTemp->icon){
+								if( isset($iconArr[$j]) ){
+									$m->sm_icon= $iconArr[$j];
+								} else 
+									continue;
+							}
+							if( $curTemp->attr1){
+								if( isset($attr1Arr[$j]) ){
+									$m->sm_attr1= $attr1Arr[$j];
+								} else 
+									continue;
+							}
+							if( $curTemp->attr2){
+								if( isset($attr2Arr[$j]) ){
+									$m->sm_attr2= $attr2Arr[$j];
+								} else 
+									continue;
+							}
+							if( $curTemp->attr3){
+								if( isset($attr3Arr[$j]) ){
+									$m->sm_attr3= $attr3Arr[$j];
+								} else 
+									continue;
+							}
+							if( $curTemp->attr4){
+								if( isset($attr4Arr[$j]) ){
+									$m->sm_attr4= $attr4Arr[$j];
+								} else 
+									continue;
+							}
+							if( $curTemp->attr5){
+								if( isset($attr5Arr[$j]) ){
+									$m->sm_attr5= $attr5Arr[$j];
 								} else 
 									continue;
 							}

@@ -4,6 +4,16 @@
 <thumbnail>home2.png</thumbnail>
 <!-- 店铺幻灯片配置 -->
 <menus>
+	<menu>
+		<group_id>index_slide</group_id>
+		<title>首页幻灯片</title>
+		<picurl>true</picurl>
+	</menu>
+	<menu>
+		<group_id>index_menu</group_id>
+		<title>首页菜单</title>
+		<icon>true</icon>
+	</menu>
 </menus>
 <attributes>
 	<attribute>

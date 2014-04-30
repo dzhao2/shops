@@ -12,6 +12,12 @@
  * @property string $sm_linkurl
  * @property integer $sm_index
  * @property string $sm_group_id
+ * @property string $sm_icon
+ * @property string $sm_attr1
+ * @property string $sm_attr2
+ * @property string $sm_attr3
+ * @property string $sm_attr4
+ * @property string $sm_attr5
  */
 class CmsShopMenu extends CActiveRecord
 {
@@ -35,10 +41,11 @@ class CmsShopMenu extends CActiveRecord
 			array('sm_shop_id, sm_index', 'numerical', 'integerOnly'=>true),
 			array('sm_picurl, sm_title, sm_linkurl', 'length', 'max'=>140),
 			array('sm_desc', 'length', 'max'=>300),
-			array('sm_group_id', 'length', 'max'=>45),
+			array('sm_group_id, sm_icon', 'length', 'max'=>45),
+			array('sm_attr1, sm_attr2, sm_attr3, sm_attr4, sm_attr5', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('sm_id, sm_shop_id, sm_picurl, sm_title, sm_desc, sm_linkurl, sm_index, sm_group_id', 'safe', 'on'=>'search'),
+			array('sm_id, sm_shop_id, sm_picurl, sm_title, sm_desc, sm_linkurl, sm_index, sm_group_id, sm_icon, sm_attr1, sm_attr2, sm_attr3, sm_attr4, sm_attr5', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +74,12 @@ class CmsShopMenu extends CActiveRecord
 			'sm_linkurl' => 'Sm Linkurl',
 			'sm_index' => 'Sm Index',
 			'sm_group_id' => 'Sm Group',
+			'sm_icon' => 'Sm Icon',
+			'sm_attr1' => 'Sm Attr1',
+			'sm_attr2' => 'Sm Attr2',
+			'sm_attr3' => 'Sm Attr3',
+			'sm_attr4' => 'Sm Attr4',
+			'sm_attr5' => 'Sm Attr5',
 		);
 	}
 
@@ -96,6 +109,12 @@ class CmsShopMenu extends CActiveRecord
 		$criteria->compare('sm_linkurl',$this->sm_linkurl,true);
 		$criteria->compare('sm_index',$this->sm_index);
 		$criteria->compare('sm_group_id',$this->sm_group_id,true);
+		$criteria->compare('sm_icon',$this->sm_icon,true);
+		$criteria->compare('sm_attr1',$this->sm_attr1,true);
+		$criteria->compare('sm_attr2',$this->sm_attr2,true);
+		$criteria->compare('sm_attr3',$this->sm_attr3,true);
+		$criteria->compare('sm_attr4',$this->sm_attr4,true);
+		$criteria->compare('sm_attr5',$this->sm_attr5,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -122,6 +141,12 @@ class CmsShopMenu extends CActiveRecord
 		$menu->sm_linkurl = $this->sm_linkurl;
 		$menu->sm_index = $this->sm_index;
 		$menu->sm_group_id = $this->sm_group_id;
+		$menu->sm_icon = $this->sm_icon;
+		$menu->sm_attr1= $this->sm_attr1;
+		$menu->sm_attr2= $this->sm_attr2;
+		$menu->sm_attr3= $this->sm_attr3;
+		$menu->sm_attr4= $this->sm_attr4;
+		$menu->sm_attr5= $this->sm_attr5;
 		return $menu;
 	}
 }

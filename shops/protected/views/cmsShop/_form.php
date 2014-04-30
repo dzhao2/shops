@@ -15,6 +15,9 @@ function printMenuForm($menuConfig, $menuGroup){
 		if( $menuConfig->picurl == 'true' ){
 		?><th>图片</th><?php 
 		}
+		if( $menuConfig->icon == 'true' ){
+		?><th>图标</th><?php 
+		}
 		?><th>操作</th>
 	</tr>
 </table>
@@ -29,7 +32,11 @@ if( $menuConfig->linkurl == 'true' ){
 	picurlCell = [<?php
 if( $menuConfig->picurl == 'true' ){
 	?>'<td><input type="text" name="menu[<?php echo $groupId; ?>][picurl][]" value="','','"/></td>'<?php
-} ?>];
+} ?>],
+	iconCell = [<?php
+		if( $menuConfig->icon == 'true' ){
+		?>'<td><input type="text" name="menu[<?php echo $groupId; ?>][icon][]" value="','','"/></td>'<?php 
+		} ?>];
 	function getCellHtml(temp,value){
 		if( temp && temp.length > 0 ){
 			temp[1] = value;
@@ -42,7 +49,7 @@ if( $menuConfig->picurl == 'true' ){
 		console.log('menuData', menuData);
 		menuData = menuData || {'title':'','picurl':'','linkurl':'','desc':''}
 		rowId++;
-		$('<tr id="'+rowIdPrefix+rowId+'">'+getCellHtml(titleCell,menuData.title)+getCellHtml(linkurlCell,menuData.linkurl)+getCellHtml(picurlCell,menuData.picurl)+'<td><button onclick="'+deleteRowFunc+'('+rowId+');return false;">删除</button> <button onclick="'+addRowFunc+'();return false;">添加</button></td></tr>').insertAfter($('#' + tableId +' tr:last-child'));
+		$('<tr id="'+rowIdPrefix+rowId+'">'+getCellHtml(titleCell,menuData.title)+getCellHtml(linkurlCell,menuData.linkurl)+getCellHtml(picurlCell,menuData.picurl)+getCellHtml(iconCell,menuData.icon)+'<td><button onclick="'+deleteRowFunc+'('+rowId+');return false;">删除</button> <button onclick="'+addRowFunc+'();return false;">添加</button></td></tr>').insertAfter($('#' + tableId +' tr:last-child'));
 	};
 	window[deleteRowFunc] = 
 	function(id){
@@ -58,7 +65,13 @@ if( $menuConfig->picurl == 'true' ){
 		'picurl':'<?php echo CHtml::encode($curmenu->sm_picurl); ?>',
 		'title':'<?php echo CHtml::encode($curmenu->sm_title); ?>',
 		'desc':'<?php echo CHtml::encode($curmenu->sm_desc); ?>',
-		'linkurl':'<?php echo CHtml::encode($curmenu->sm_linkurl); ?>'
+		'linkurl':'<?php echo CHtml::encode($curmenu->sm_linkurl); ?>',
+		'icon':'<?php echo CHtml::encode($curmenu->sm_icon); ?>',
+		'attr1':'<?php echo CHtml::encode($curmenu->sm_attr1); ?>',
+		'attr2':'<?php echo CHtml::encode($curmenu->sm_attr2); ?>',
+		'attr3':'<?php echo CHtml::encode($curmenu->sm_attr3); ?>',
+		'attr4':'<?php echo CHtml::encode($curmenu->sm_attr4); ?>',
+		'attr5':'<?php echo CHtml::encode($curmenu->sm_attr5); ?>'
 		});<?php
 		}
 	} 

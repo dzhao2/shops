@@ -4163,3 +4163,55 @@ REQUEST_URI=/shops/index.php?r=view&id=1&page=list&n_category_id=3&tid=20009
 in D:\wamp\www\shops\protected\views\view\list\20009.php (13)
 in D:\wamp\www\shops\protected\controllers\ViewController.php (25)
 in D:\wamp\www\shops\index.php (13)
+2014/04/30 03:58:59 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.fake_shop_id" is not defined.' in D:\wamp\www\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('fake_shop_id')
+#1 D:\wamp\www\shops\protected\controllers\TemplateController.php(41): CWebUser->__get('fake_shop_id')
+#2 [internal function]: TemplateController->actionUse('20036')
+#3 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(TemplateController), Array)
+#4 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(TemplateController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('use')
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('template/use')
+#10 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\shops\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/shops/index.php?r=template/use&id=20036
+---
+2014/04/30 05:33:08 [error] [exception.CException] exception 'CException' with message 'TemplateController cannot find the requested view "/view/index/10001".' in D:\wamp\www\yii\framework\web\CController.php:878
+Stack trace:
+#0 D:\wamp\www\shops\protected\controllers\TemplateController.php(101): CController->renderPartial('/view/index/100...', Array)
+#1 [internal function]: TemplateController->actionPreview('10001')
+#2 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(TemplateController), Array)
+#3 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(TemplateController), Object(ReflectionMethod), Array)
+#4 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('preview')
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('template/previe...')
+#9 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\www\shops\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/shops/index.php?r=template/preview&id=10001
+HTTP_REFERER=http://localhost/shops/index.php?r=template/use&id=10001
+---
+2014/04/30 06:45:56 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.fake_shop_id" is not defined.' in D:\wamp\www\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\wamp\www\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('fake_shop_id')
+#1 D:\wamp\www\shops\protected\controllers\TemplateController.php(42): CWebUser->__get('fake_shop_id')
+#2 [internal function]: TemplateController->actionUse('10001')
+#3 D:\wamp\www\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(TemplateController), Array)
+#4 D:\wamp\www\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(TemplateController), Object(ReflectionMethod), Array)
+#5 D:\wamp\www\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\wamp\www\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\wamp\www\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\wamp\www\yii\framework\web\CWebApplication.php(282): CController->run('use')
+#9 D:\wamp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('template/use')
+#10 D:\wamp\www\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\wamp\www\shops\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/shops/index.php?r=template/use&id=10001
+HTTP_REFERER=http://localhost/shops/index.php?r=template/list
+---
